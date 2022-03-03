@@ -64,9 +64,47 @@
                     <view key="view" contentMode="scaleToFill" id="W28-3c-CnO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWb-2h-mHf">
+                                <rect key="frame" x="10" y="54" width="394" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="Xax-Eg-U8g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="t7N-rm-sAb">
+                                <rect key="frame" x="0.0" y="304" width="414" height="558"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="db0-Kb-pxq">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="db0-Kb-pxq" id="4uM-7x-p4t">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="LLQ-lD-NRr"/>
                         <color key="backgroundColor" red="0.23287741342961976" green="0.44848715903500452" blue="0.51129822839390149" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="t7N-rm-sAb" firstAttribute="top" secondItem="jWb-2h-mHf" secondAttribute="bottom" id="LVw-L4-Tff"/>
+                            <constraint firstItem="jWb-2h-mHf" firstAttribute="leading" secondItem="LLQ-lD-NRr" secondAttribute="leading" constant="10" id="Uz5-O6-RSk"/>
+                            <constraint firstItem="t7N-rm-sAb" firstAttribute="leading" secondItem="LLQ-lD-NRr" secondAttribute="leading" id="XFi-02-T9W"/>
+                            <constraint firstItem="LLQ-lD-NRr" firstAttribute="trailing" secondItem="jWb-2h-mHf" secondAttribute="trailing" constant="10" id="dBG-e8-lu9"/>
+                            <constraint firstItem="jWb-2h-mHf" firstAttribute="top" secondItem="LLQ-lD-NRr" secondAttribute="top" constant="10" id="mrj-XB-Edw"/>
+                            <constraint firstItem="LLQ-lD-NRr" firstAttribute="bottom" secondItem="t7N-rm-sAb" secondAttribute="bottom" id="yEX-D2-TPX"/>
+                            <constraint firstItem="LLQ-lD-NRr" firstAttribute="trailing" secondItem="t7N-rm-sAb" secondAttribute="trailing" id="zn4-Le-Oz6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="jWb-2h-mHf" id="9xh-Lm-c8w"/>
+                        <outlet property="table" destination="t7N-rm-sAb" id="TMP-yt-2Ca"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzd-J8-3pJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,6 +112,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

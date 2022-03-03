@@ -16,24 +16,23 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBOutlet var label: UILabel!
   @IBOutlet var table: UITableView!
 
-  
-
     override func viewDidLoad() {
-        super.viewDidLoad()
-        setupQuestions()
-        
+      super.viewDidLoad()
+      table.delegate = self // configuring the tableView
+      table.dataSource = self // configuring the tableView
+      setupQuestions()
+      configureUI(question: gameModels.first!)
     }
   
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-    configureUI(question: gameModels.first!)
-  }
+//  override func viewDidLayoutSubviews() {
+//    super.viewDidLayoutSubviews()
+//
+//  }
   
   private func configureUI(question: Question) {
     label.text = question.text
     currentQuestion = question
-    table.delegate = self // configuring the tableView
-    table.dataSource = self // configuring the tableView
+    table.reloadData()
   }
   
   private func checkAnswer(answer: Answer, question: Question) -> Bool {
@@ -74,7 +73,42 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     cell.textLabel?.text = currentQuestion?.answers[indexPath.row].text
-    return cell
+    return cell 
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    
+    guard let question = currentQuestion else {
+      return
+    }
+    
+    let answer = question.answers[indexPath.row]
+    
+    if checkAnswer(answer: answer, question: question) {
+      // correct
+      if let index = gameModels.firstIndex(where: {$0.text == question.text}) {
+        if index < (gameModels.count - 1) {
+            // next question
+            let nextQuestion = gameModels[index + 1]
+          print("\(nextQuestion.text)")
+          currentQuestion = nil
+          configureUI(question: nextQuestion)
+      }
+      else {
+        // end of game
+        let alert = UIAlertController(title: "Done", message: "You beat the game!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        present(alert, animated: true)
+      }
+      }
+    }
+    else {
+      // wrong
+      let alert = UIAlertController(title: "Wrong", message: "You failed", preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+      present(alert, animated: true)
+    }
   }
     
   struct Question {
