@@ -7,9 +7,16 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   var gameModels = [Question]()
+  
+  var currentQuestion: Question?
+  
+  @IBOutlet var label: UILabel!
+  @IBOutlet var table: UITableView!
+
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +26,19 @@ class GameViewController: UIViewController {
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
-    configureUI()
+    configureUI(question: gameModels.first!)
   }
   
-  private func configureUI() {
+  private func configureUI(question: Question) {
+    label.text = question.text
+    currentQuestion = question
+    table.delegate = self // configuring the tableView
+    table.dataSource = self // configuring the tableView
+  }
+  
+  private func checkAnswer(answer: Answer, question: Question) -> Bool {
+    
+    return question.answers.contains(where: { $0.text == answer.text }) && answer.correct
     
   }
   
@@ -47,6 +63,18 @@ class GameViewController: UIViewController {
     Answer(text: "4", correct: false),
     Answer(text: "2", correct: true)
     ]))
+  }
+  
+  // Table view functons
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    currentQuestion?.answers.count ?? 0
+  }
+
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+    cell.textLabel?.text = currentQuestion?.answers[indexPath.row].text
+    return cell
   }
     
   struct Question {
