@@ -20,7 +20,7 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
       super.viewDidLoad()
       table.delegate = self // configuring the tableView
       table.dataSource = self // configuring the tableView
-      setupQuestions()
+//      questionsInRandomOrder
       configureUI(question: gameModels.first!)
     }
   
@@ -41,20 +41,20 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
     
   }
   
-  private func setupQuestions() {
+  let allQuestions = [
     gameModels.append(Question(text: "What is 2 + 2?", answers: [
     Answer(text: "1", correct: false),
     Answer(text: "2", correct: false),
     Answer(text: "4", correct: true),
     Answer(text: "7", correct: false)
-    ]))
+    ])),
     
     gameModels.append(Question(text: "What is 2 + 10?", answers: [
     Answer(text: "1", correct: false),
     Answer(text: "12", correct: true),
     Answer(text: "4", correct: false),
     Answer(text: "7", correct: false)
-    ]))
+    ])),
     
     gameModels.append(Question(text: "What is 2 + 0?", answers: [
     Answer(text: "1", correct: false),
@@ -62,7 +62,10 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
     Answer(text: "4", correct: false),
     Answer(text: "2", correct: true)
     ]))
-  }
+  ]
+
+//  let questionsInRandomOrder = allQuestions.shuffled()
+  
   
   // Table view functons
   
@@ -73,7 +76,7 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     cell.textLabel?.text = currentQuestion?.answers[indexPath.row].text
-    return cell 
+    return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -121,5 +124,13 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
     let text: String
     let correct: Bool // true/false
   }
+  
+//  class gModels {
+//    let gameModels: [Question]
+//
+//    init() {
+//      self.gameModels = [Question(text: "What's up?", answers: [text: "Fine", correct: true])]
+//    }
+//  }
 
 }
