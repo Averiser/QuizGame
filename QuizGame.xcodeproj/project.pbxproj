@@ -52,6 +52,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E403C82927E8A2E500FE8195 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E498E5E927CE8E6C000E980B /* ViewController.swift */,
+				E498E5F927CE92BE000E980B /* GameViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E403C82A27E8B8CB00FE8195 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E498E5EB27CE8E6C000E980B /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E498E5D927CE8E6C000E980B = {
 			isa = PBXGroup;
 			children = (
@@ -72,14 +89,13 @@
 			isa = PBXGroup;
 			children = (
 				E403C82427E89F7200FE8195 /* Model */,
+				E403C82A27E8B8CB00FE8195 /* View */,
+				E403C82927E8A2E500FE8195 /* Controller */,
 				E498E5E527CE8E6C000E980B /* AppDelegate.swift */,
 				E498E5E727CE8E6C000E980B /* SceneDelegate.swift */,
-				E498E5E927CE8E6C000E980B /* ViewController.swift */,
-				E498E5EB27CE8E6C000E980B /* Main.storyboard */,
 				E498E5EE27CE8E6D000E980B /* Assets.xcassets */,
 				E498E5F027CE8E6D000E980B /* LaunchScreen.storyboard */,
 				E498E5F327CE8E6D000E980B /* Info.plist */,
-				E498E5F927CE92BE000E980B /* GameViewController.swift */,
 			);
 			path = QuizGame;
 			sourceTree = "<group>";

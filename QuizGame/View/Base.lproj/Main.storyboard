@@ -65,7 +65,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWb-2h-mHf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWb-2h-mHf" userLabel="questionNameLabel">
                                 <rect key="frame" x="10" y="54" width="394" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="Xax-Eg-U8g"/>
@@ -74,7 +74,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="t7N-rm-sAb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="t7N-rm-sAb" userLabel="tableView">
                                 <rect key="frame" x="0.0" y="304" width="414" height="558"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -102,8 +102,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="label" destination="jWb-2h-mHf" id="9xh-Lm-c8w"/>
-                        <outlet property="table" destination="t7N-rm-sAb" id="TMP-yt-2Ca"/>
+                        <outlet property="questionNameLabel" destination="jWb-2h-mHf" id="Zph-K1-4wb"/>
+                        <outlet property="tableView" destination="t7N-rm-sAb" id="22d-ua-fGE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzd-J8-3pJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
