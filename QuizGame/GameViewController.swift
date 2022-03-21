@@ -20,8 +20,22 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
       super.viewDidLoad()
       table.delegate = self // configuring the tableView
       table.dataSource = self // configuring the tableView
+//      setupQuestions()
 //      questionsInRandomOrder
-      configureUI(question: gameModels.first!)
+      
+//      if let firstQuestion = gameModels.first {
+//        configureUI(question: firstQuestion)
+//      } else {
+//        return
+//      }
+//      guard let firstQuestion = gameModels.first else {
+//        return
+//      }
+      
+//      let firstQuestion = gameModels.first != nil ? gameModels.first: 0
+      
+//      configureUI(question: firstQuestion)
+        configureUI(question: gameModels.first!)
     }
   
 //  override func viewDidLayoutSubviews() {
@@ -41,13 +55,17 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
     
   }
   
-  let allQuestions = [
+//  private func setupQuestions() {
+  
+  lazy var allQuestions = [
     gameModels.append(Question(text: "What is 2 + 2?", answers: [
     Answer(text: "1", correct: false),
     Answer(text: "2", correct: false),
     Answer(text: "4", correct: true),
     Answer(text: "7", correct: false)
     ])),
+    
+//    gameModels.ap
     
     gameModels.append(Question(text: "What is 2 + 10?", answers: [
     Answer(text: "1", correct: false),
@@ -63,9 +81,9 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
     Answer(text: "2", correct: true)
     ]))
   ]
-
-//  let questionsInRandomOrder = allQuestions.shuffled()
-  
+//  }
+    
+//  lazy var questionsInRandomOrder = allQuestions.shuffle()
   
   // Table view functons
   
@@ -112,17 +130,6 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
       alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
       present(alert, animated: true)
     }
-  }
-    
-  struct Question {
-    let text: String
-    
-    let answers: [Answer]
-  }
-  
-  struct Answer {
-    let text: String
-    let correct: Bool // true/false
   }
   
 //  class gModels {
