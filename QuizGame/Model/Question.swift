@@ -9,5 +9,5 @@ import Foundation
 
 struct Question {
   let text: String
-  let answers: [Answer]
+  var answers: [Answer]
 }

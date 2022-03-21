@@ -56,7 +56,7 @@ class GameViewController: UIViewController {
   
   // MARK: - QuizGame
   
-  private func showQuestion() {
+  func showQuestion() {
     let randomQuestion = questions.randomElement()
     currentQuestion = randomQuestion
     questionNameLabel.text = currentQuestion?.text ?? ""
@@ -65,6 +65,9 @@ class GameViewController: UIViewController {
     questions.remove(at: index)
     
     tableView.reloadData()
+    
+//    let randomAnswer = answers.randomElement()
+    
   }
   
   private func checkAnswer(for answer: Answer) {
@@ -93,7 +96,8 @@ class GameViewController: UIViewController {
   extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      currentQuestion?.answers.count ?? 0
+      currentQuestion?.answers.shuffle()
+      return currentQuestion?.answers.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
