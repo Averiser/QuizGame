@@ -75,8 +75,9 @@ class GameViewController: UIViewController {
     if answer.correct {
       
       if questions.isEmpty {
-        let alert = UIAlertController(title: "Done", message: "You beat the game!", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        let alert = UIAlertController(title: "Awesome", message: "End of Quiz. Do you want to start over?", preferredStyle: .alert)
+        let restartAction = UIAlertAction(title: "Restart", style: .default, handler: { action in self.restartQuiz() } )
+        alert.addAction(restartAction)
         present(alert, animated: true)
         return
       }
@@ -88,6 +89,10 @@ class GameViewController: UIViewController {
       alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
       present(alert, animated: true)
     }
+  }
+  
+  private func restartQuiz() {
+    
   }
 }
   
