@@ -25,6 +25,7 @@ class GameViewController: UIViewController {
   
   // MARK: - IBOutlets
   
+  @IBOutlet weak var questionNumber: UILabel!
   @IBOutlet var questionNameLabel: UILabel!
   @IBOutlet var tableView: UITableView!
   
@@ -52,6 +53,7 @@ class GameViewController: UIViewController {
   ]
   
   private var currentQuestion: Question?
+  var qNumber: Int = 1
   
   // MARK: - Lifecycle
 
@@ -79,6 +81,8 @@ class GameViewController: UIViewController {
     questions.remove(at: index)
     
     tableView.reloadData()
+    questionNumber.text = "Question \(qNumber)"
+    qNumber += 1
     
 //    let randomAnswer = answers.randomElement()
     
@@ -112,10 +116,15 @@ class GameViewController: UIViewController {
     updateQuestion()
   }
   
-  func updateQuestion() {
+  private func updateQuestion() {
     navigateToGame()
 //    showQuestion()
   }
+  
+  private func updateUI() {
+    
+  }
+  
 }
   
   // MARK: - UITableViewDelegate, UITableViewDataSource
