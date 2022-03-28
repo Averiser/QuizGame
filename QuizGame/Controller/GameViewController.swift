@@ -9,6 +9,20 @@ import UIKit
 
 class GameViewController: UIViewController {
   
+  // MARK: - Private  methods
+  
+ private func navigateToGame() {
+      let vc = storyboard?.instantiateViewController(identifier: "game") as! GameViewController
+    vc.modalPresentationStyle = .fullScreen
+    present(vc, animated: true)
+  }
+  
+  
+  
+  
+  
+  
+  
   // MARK: - IBOutlets
   
   @IBOutlet var questionNameLabel: UILabel!
@@ -78,8 +92,8 @@ class GameViewController: UIViewController {
         let alert = UIAlertController(title: "Awesome", message: "End of Quiz. Do you want to start over?", preferredStyle: .alert)
         let restartAction = UIAlertAction(title: "Restart", style: .default, handler: { action in self.restartQuiz() } )
         alert.addAction(restartAction)
-        present(alert, animated: true)
-        return
+        present(alert, animated: true, completion: nil)
+//        return
       }
       
       showQuestion()
@@ -92,7 +106,15 @@ class GameViewController: UIViewController {
   }
   
   private func restartQuiz() {
-    
+//    score = 0
+//    qtionNumber = 0
+//    qNumber = 0
+    updateQuestion()
+  }
+  
+  func updateQuestion() {
+    navigateToGame()
+//    showQuestion()
   }
 }
   

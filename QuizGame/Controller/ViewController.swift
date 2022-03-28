@@ -18,7 +18,7 @@ class ViewController: UIViewController {
   
   // MARK: - Private  methods
   
-  private func navigateToGame() {
+ private func navigateToGame() {
       let vc = storyboard?.instantiateViewController(identifier: "game") as! GameViewController
     vc.modalPresentationStyle = .fullScreen
     present(vc, animated: true)
