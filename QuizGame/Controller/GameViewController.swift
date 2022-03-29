@@ -9,25 +9,11 @@ import UIKit
 
 class GameViewController: UIViewController {
   
-  // MARK: - Private  methods
-  
- private func navigateToGame() {
-      let vc = storyboard?.instantiateViewController(identifier: "game") as! GameViewController
-    vc.modalPresentationStyle = .fullScreen
-    present(vc, animated: true)
-  }
-  
-  
-  
-  
-  
-  
-  
   // MARK: - IBOutlets
   
-  @IBOutlet weak var questionNumber: UILabel!
-  @IBOutlet var questionNameLabel: UILabel!
-  @IBOutlet var tableView: UITableView!
+  @IBOutlet private var questionNumberLabel: UILabel!
+  @IBOutlet private var questionNameLabel: UILabel!
+  @IBOutlet private var tableView: UITableView!
   
   // MARK: - Properties
   
@@ -51,9 +37,9 @@ class GameViewController: UIViewController {
       Answer(text: "2", correct: true)
       ])
   ]
-  
+  private var shuffledQuestions: [Question] = []
   private var currentQuestion: Question?
-  var qNumber: Int = 1
+  private var questionNumber: Int = 1
   
   // MARK: - Lifecycle
 
@@ -72,57 +58,52 @@ class GameViewController: UIViewController {
   
   // MARK: - QuizGame
   
-  func showQuestion() {
-    let randomQuestion = questions.randomElement()
-    currentQuestion = randomQuestion
-    questionNameLabel.text = currentQuestion?.text ?? ""
-    
-    guard let index = questions.firstIndex(where: { $0.text == randomQuestion?.text }) else { return }
-    questions.remove(at: index)
-    
-    tableView.reloadData()
-    questionNumber.text = "Question \(qNumber)"
-    qNumber += 1
-    
-//    let randomAnswer = answers.randomElement()
-    
+  private func shuffleQuestions() {
+    shuffledQuestions = questions.shuffled()
+    questionNumber = 1
+    showQuestion()
   }
   
+  private func showQuestion() {
+//    let randomQuestion = questions.randomElement()
+//    currentQuestion = randomQuestion
+    currentQuestion = shuffledQuestions[questionNumber - 1]
+    questionNameLabel.text = currentQuestion?.text ?? ""
+    
+    questionNumberLabel.text = "Question \(questionNumber)"
+    questionNumber += 1
+    tableView.reloadData()
+    
+//    guard let index = questions.firstIndex(where: { $0.text == currentQuestion?.text }) else { return }
+//    questions.remove(at: index)
+  }
+
   private func checkAnswer(for answer: Answer) {
     
     if answer.correct {
-      
-      if questions.isEmpty {
-        let alert = UIAlertController(title: "Awesome", message: "End of Quiz. Do you want to start over?", preferredStyle: .alert)
-        let restartAction = UIAlertAction(title: "Restart", style: .default, handler: { action in self.restartQuiz() } )
-        alert.addAction(restartAction)
-        present(alert, animated: true, completion: nil)
-//        return
+      if questionNumber > 3 {
+              let alert = UIAlertController(title: "Awesome",
+                                            message: "End of Quiz. Do you want to start over?",
+                                            preferredStyle: .alert)
+              let restartAction = UIAlertAction(title: "Restart",
+                                                style: .default,
+                                                handler: { action in self.shuffleQuestions() } )
+              alert.addAction(restartAction)
+              present(alert, animated: true, completion: nil)
+        return
       }
       
       showQuestion()
     } else {
       // wrong
-      let alert = UIAlertController(title: "Wrong", message: "You failed", preferredStyle: .alert)
-      alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+      let alert = UIAlertController(title: "Wrong",
+                                    message: "You failed",
+                                    preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "Dismiss",
+                                    style: .cancel,
+                                    handler: nil))
       present(alert, animated: true)
     }
-  }
-  
-  private func restartQuiz() {
-//    score = 0
-//    qtionNumber = 0
-//    qNumber = 0
-    updateQuestion()
-  }
-  
-  private func updateQuestion() {
-    navigateToGame()
-//    showQuestion()
-  }
-  
-  private func updateUI() {
-    
   }
   
 }
@@ -132,7 +113,7 @@ class GameViewController: UIViewController {
   extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      currentQuestion?.answers.shuffle()
+//      currentQuestion?.answers.shuffle()
       return currentQuestion?.answers.count ?? 0
     }
     

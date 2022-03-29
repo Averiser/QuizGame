@@ -114,13 +114,13 @@
                     </view>
                     <connections>
                         <outlet property="questionNameLabel" destination="jWb-2h-mHf" id="Zph-K1-4wb"/>
-                        <outlet property="questionNumber" destination="oZq-Uj-ACf" id="VRz-IZ-gSm"/>
+                        <outlet property="questionNumberLabel" destination="oZq-Uj-ACf" id="iPR-rS-gZn"/>
                         <outlet property="tableView" destination="t7N-rm-sAb" id="22d-ua-fGE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzd-J8-3pJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="645" y="75"/>
+            <point key="canvasLocation" x="588" y="117"/>
         </scene>
     </scenes>
     <resources>
