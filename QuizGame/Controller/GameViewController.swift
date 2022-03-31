@@ -11,6 +11,9 @@ class GameViewController: UIViewController {
   
   // MARK: - IBOutlets
   
+  @IBOutlet weak var questionCounterLabel: UILabel!
+  @IBOutlet weak var scoreLabel: UILabel!
+  @IBOutlet weak var progressView: UIProgressView!
   @IBOutlet private var questionNumberLabel: UILabel!
   @IBOutlet private var questionNameLabel: UILabel!
   @IBOutlet private var tableView: UITableView!
@@ -30,6 +33,18 @@ class GameViewController: UIViewController {
       Answer(text: "4", correct: false),
       Answer(text: "7", correct: false)
       ]),
+    Question(text: "What is 7 - 1?", answers: [
+      Answer(text: "1", correct: false),
+      Answer(text: "0", correct: false),
+      Answer(text: "6", correct: true),
+      Answer(text: "3", correct: false)
+      ]),
+    Question(text: "What is 100 + 50?", answers: [
+      Answer(text: "3", correct: false),
+      Answer(text: "12", correct: false),
+      Answer(text: "150", correct: true),
+      Answer(text: "70", correct: false)
+      ]),
     Question(text: "What is 2 + 0?", answers: [
       Answer(text: "1", correct: false),
       Answer(text: "5", correct: false),
@@ -39,7 +54,8 @@ class GameViewController: UIViewController {
   ]
   private var shuffledQuestions: [Question] = []
   private var currentQuestion: Question?
-  private var questionNumber: Int = 1
+  private var questionNumber: Int = 0
+  private var score: Int = 0
   
   // MARK: - Lifecycle
 
@@ -61,12 +77,17 @@ class GameViewController: UIViewController {
   private func shuffleQuestions() {
     shuffledQuestions = questions.shuffled()
     questionNumber = 1
+    score = 0
     showQuestion()
   }
   
   private func showQuestion() {
 //    let randomQuestion = questions.randomElement()
 //    currentQuestion = randomQuestion
+    questionCounterLabel.text = "\(questionNumber)/\(questions.count)"
+    scoreLabel.text = "Score: \(score)"
+    progressView.frame.size.width = (view.frame.size.width)/CGFloat(questions.count)*CGFloat(questionNumber)
+    
     currentQuestion = shuffledQuestions[questionNumber - 1]
     questionNameLabel.text = currentQuestion?.text ?? ""
     
@@ -81,7 +102,8 @@ class GameViewController: UIViewController {
   private func checkAnswer(for answer: Answer) {
     
     if answer.correct {
-      if questionNumber > 3 {
+      score += 1
+      if questionNumber > questions.count {
               let alert = UIAlertController(title: "Awesome",
                                             message: "End of Quiz. Do you want to start over?",
                                             preferredStyle: .alert)
@@ -92,7 +114,6 @@ class GameViewController: UIViewController {
               present(alert, animated: true, completion: nil)
         return
       }
-      
       showQuestion()
     } else {
       // wrong
@@ -113,7 +134,7 @@ class GameViewController: UIViewController {
   extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//      currentQuestion?.answers.shuffle()
+      currentQuestion?.answers.shuffle()
       return currentQuestion?.answers.count ?? 0
     }
     
