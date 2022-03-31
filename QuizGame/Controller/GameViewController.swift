@@ -46,7 +46,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
       super.viewDidLoad()
       configureTableView()
-      showQuestion()
+      shuffleQuestions()
     }
   
   // MARK: - Configure UI
