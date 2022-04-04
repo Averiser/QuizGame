@@ -86,13 +86,14 @@ class GameViewController: UIViewController {
 //    currentQuestion = randomQuestion
     questionCounterLabel.text = "\(questionNumber)/\(questions.count)"
     scoreLabel.text = "Score: \(score)"
-    progressView.frame.size.width = (view.frame.size.width)/CGFloat(questions.count)*CGFloat(questionNumber)
     
     currentQuestion = shuffledQuestions[questionNumber - 1]
     questionNameLabel.text = currentQuestion?.text ?? ""
     
     questionNumberLabel.text = "Question \(questionNumber)"
     questionNumber += 1
+    score += 1
+    progressView.frame.size.width = (view.frame.size.width / CGFloat(questions.count)) * CGFloat(questionNumber)
     tableView.reloadData()
     
 //    guard let index = questions.firstIndex(where: { $0.text == currentQuestion?.text }) else { return }
@@ -100,16 +101,16 @@ class GameViewController: UIViewController {
   }
 
   private func checkAnswer(for answer: Answer) {
-    
     if answer.correct {
-      score += 1
       if questionNumber > questions.count {
+        scoreLabel.text = "Score: \(score)"
               let alert = UIAlertController(title: "Awesome",
                                             message: "End of Quiz. Do you want to start over?",
                                             preferredStyle: .alert)
               let restartAction = UIAlertAction(title: "Restart",
                                                 style: .default,
-                                                handler: { action in self.shuffleQuestions() } )
+                                                handler: { action in
+                                                self.shuffleQuestions() } )
               alert.addAction(restartAction)
               present(alert, animated: true, completion: nil)
         return
