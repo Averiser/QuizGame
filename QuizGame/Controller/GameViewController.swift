@@ -84,6 +84,10 @@ class GameViewController: UIViewController {
   private func showQuestion() {
 //    let randomQuestion = questions.randomElement()
 //    currentQuestion = randomQuestion
+    
+    let stepProgress = Float(questionNumber - 1) / Float(questions.count)
+    progressView.progress = stepProgress
+    
     questionCounterLabel.text = "\(questionNumber)/\(questions.count)"
     scoreLabel.text = "Score: \(score)"
     
@@ -93,7 +97,9 @@ class GameViewController: UIViewController {
     questionNumberLabel.text = "Question \(questionNumber)"
     questionNumber += 1
     score += 1
-    progressView.frame.size.width = (view.frame.size.width / CGFloat(questions.count)) * CGFloat(questionNumber)
+    
+//        self.progressView.frame.size.width = (self.view.frame.size.width / CGFloat(self.questions.count)) * CGFloat(self.questionNumber)
+
     tableView.reloadData()
     
 //    guard let index = questions.firstIndex(where: { $0.text == currentQuestion?.text }) else { return }
@@ -103,14 +109,16 @@ class GameViewController: UIViewController {
   private func checkAnswer(for answer: Answer) {
     if answer.correct {
       if questionNumber > questions.count {
+        // filling the scale fully
+        progressView.progress = Float(questions.count)
         scoreLabel.text = "Score: \(score)"
+        
               let alert = UIAlertController(title: "Awesome",
                                             message: "End of Quiz. Do you want to start over?",
                                             preferredStyle: .alert)
               let restartAction = UIAlertAction(title: "Restart",
                                                 style: .default,
-                                                handler: { action in
-                                                self.shuffleQuestions() } )
+                                                handler: { action in self.shuffleQuestions() } )
               alert.addAction(restartAction)
               present(alert, animated: true, completion: nil)
         return
