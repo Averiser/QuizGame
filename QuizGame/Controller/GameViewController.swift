@@ -97,60 +97,76 @@ class GameViewController: UIViewController {
     
     questionNumberLabel.text = "Question \(questionNumber)"
     questionNumber += 1
-    
-//        self.progressView.frame.size.width = (self.view.frame.size.width / CGFloat(self.questions.count)) * CGFloat(self.questionNumber)
 
     tableView.reloadData()
-    
-//    guard let index = questions.firstIndex(where: { $0.text == currentQuestion?.text }) else { return }
-//    questions.remove(at: index)
-  }
 
-  private func checkAnswer(for answer: Answer) {
-    if answer.correct {
-//      cell.turnGreen()
-      if questionNumber > questions.count {
-        // filling the scale fully
-        progressView.progress = Float(questions.count)
-        score += 1
-        scoreLabel.text = "Score: \(score)"
-//        answer.turnGreen()
-        
-              let alert = UIAlertController(title: "Awesome",
-                                            message: "End of Quiz. Do you want to start over?",
-                                            preferredStyle: .alert)
-              let restartAction = UIAlertAction(title: "Restart",
-                                                style: .default,
-                                                handler: { action in self.shuffleQuestions() } )
-              alert.addAction(restartAction)
-              present(alert, animated: true, completion: nil)
-        return
-      }
-//      answer.turnGreen()
-      score += 1
-      showQuestion()
+  }
+  
+  private func updateUI() {
+    progressView.progress = Float((questionNumber-1)/questions.count)
+    scoreLabel.text = "Score: \(score)"
+//    questionNumber += 1
+    
+    if questionNumber > questions.count {
+      let alert = UIAlertController(title: "Awesome",
+                                    message: "End of Quiz. Do you want to start over?",
+                                    preferredStyle: .alert)
+      let restartAction = UIAlertAction(title: "Restart",
+                                        style: .default,
+                                        handler: { action in self.shuffleQuestions() } )
+      alert.addAction(restartAction)
+      present(alert, animated: true, completion: nil)
     } else {
-      // wrong
-      
-      if questionNumber > questions.count {
-        // filling the scale fully
-        progressView.progress = Float(questions.count)
-        scoreLabel.text = "Score: \(score)"
-        
-              let alert = UIAlertController(title: "Awesome",
-                                            message: "End of Quiz. Do you want to start over?",
-                                            preferredStyle: .alert)
-              let restartAction = UIAlertAction(title: "Restart",
-                                                style: .default,
-                                                handler: { action in self.shuffleQuestions() } )
-              alert.addAction(restartAction)
-              present(alert, animated: true, completion: nil)
-        return
-      }
-//      answer.turnRed()
       showQuestion()
     }
+    
   }
+
+//    private func checkAnswer(for answer: Answer) {
+//      if answer.correct {
+//  //      cell.turnGreen()
+//        if questionNumber > questions.count {
+//          // filling the scale fully
+//          progressView.progress = Float(questions.count)
+//          score += 1
+//          scoreLabel.text = "Score: \(score)"
+//  //        answer.turnGreen()
+//
+//                let alert = UIAlertController(title: "Awesome",
+//                                              message: "End of Quiz. Do you want to start over?",
+//                                              preferredStyle: .alert)
+//                let restartAction = UIAlertAction(title: "Restart",
+//                                                  style: .default,
+//                                                  handler: { action in self.shuffleQuestions() } )
+//                alert.addAction(restartAction)
+//                present(alert, animated: true, completion: nil)
+//          return
+//        }
+//  //      answer.turnGreen()
+//        score += 1
+//        showQuestion()
+//      } else {
+//        // wrong
+//
+//        if questionNumber > questions.count {
+//          // filling the scale fully
+//          progressView.progress = Float(questions.count)
+//          scoreLabel.text = "Score: \(score)"
+//
+//                let alert = UIAlertController(title: "Awesome",
+//                                              message: "End of Quiz. Do you want to start over?",
+//                                              preferredStyle: .alert)
+//                let restartAction = UIAlertAction(title: "Restart",
+//                                                  style: .default,
+//                                                  handler: { action in self.shuffleQuestions() } )
+//                alert.addAction(restartAction)
+//                present(alert, animated: true, completion: nil)
+//          return
+//        }
+//  //      answer.turnRed()
+//        showQuestion()
+//      }
+//    }
   
 }
   
@@ -179,15 +195,19 @@ class GameViewController: UIViewController {
       guard let question = currentQuestion else { return }
       let answer = question.answers[indexPath.row]
       
-      checkAnswer(for: answer)
+//      checkAnswer(for: answer)
       
       if answer.correct {
+        score += 1
         cell.turnGreen()
       } else {
         cell.turnRed()
       }
-
-  
+      
+      DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+        self.updateUI()
+      }
+      
     }
     
   }
