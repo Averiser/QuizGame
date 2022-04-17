@@ -70,6 +70,7 @@ class GameViewController: UIViewController {
   private func configureTableView() {
     tableView.delegate = self
     tableView.dataSource = self
+    tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
   }
   
   // MARK: - QuizGame
@@ -96,7 +97,6 @@ class GameViewController: UIViewController {
     
     questionNumberLabel.text = "Question \(questionNumber)"
     questionNumber += 1
-    score += 1
     
 //        self.progressView.frame.size.width = (self.view.frame.size.width / CGFloat(self.questions.count)) * CGFloat(self.questionNumber)
 
@@ -108,6 +108,30 @@ class GameViewController: UIViewController {
 
   private func checkAnswer(for answer: Answer) {
     if answer.correct {
+//      cell.turnGreen()
+      if questionNumber > questions.count {
+        // filling the scale fully
+        progressView.progress = Float(questions.count)
+        score += 1
+        scoreLabel.text = "Score: \(score)"
+//        answer.turnGreen()
+        
+              let alert = UIAlertController(title: "Awesome",
+                                            message: "End of Quiz. Do you want to start over?",
+                                            preferredStyle: .alert)
+              let restartAction = UIAlertAction(title: "Restart",
+                                                style: .default,
+                                                handler: { action in self.shuffleQuestions() } )
+              alert.addAction(restartAction)
+              present(alert, animated: true, completion: nil)
+        return
+      }
+//      answer.turnGreen()
+      score += 1
+      showQuestion()
+    } else {
+      // wrong
+      
       if questionNumber > questions.count {
         // filling the scale fully
         progressView.progress = Float(questions.count)
@@ -123,16 +147,8 @@ class GameViewController: UIViewController {
               present(alert, animated: true, completion: nil)
         return
       }
+//      answer.turnRed()
       showQuestion()
-    } else {
-      // wrong
-      let alert = UIAlertController(title: "Wrong",
-                                    message: "You failed",
-                                    preferredStyle: .alert)
-      alert.addAction(UIAlertAction(title: "Dismiss",
-                                    style: .cancel,
-                                    handler: nil))
-      present(alert, animated: true)
     }
   }
   
@@ -148,19 +164,32 @@ class GameViewController: UIViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as? CustomTableViewCell else {
+        return UITableViewCell()
+      }
       cell.textLabel?.text = currentQuestion?.answers[indexPath.row].text
       return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       tableView.deselectRow(at: indexPath, animated: true)
+      
+      guard let cell = tableView.cellForRow(at: indexPath) as? CustomTableViewCell else { return }
     
       guard let question = currentQuestion else { return }
       let answer = question.answers[indexPath.row]
       
       checkAnswer(for: answer)
+      
+      if answer.correct {
+        cell.turnGreen()
+      } else {
+        cell.turnRed()
+      }
+
+  
     }
+    
   }
   
   
