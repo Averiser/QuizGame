@@ -121,52 +121,6 @@ class GameViewController: UIViewController {
     }
     
   }
-
-//    private func checkAnswer(for answer: Answer) {
-//      if answer.correct {
-//  //      cell.turnGreen()
-//        if questionNumber > questions.count {
-//          // filling the scale fully
-//          progressView.progress = Float(questions.count)
-//          score += 1
-//          scoreLabel.text = "Score: \(score)"
-//  //        answer.turnGreen()
-//
-//                let alert = UIAlertController(title: "Awesome",
-//                                              message: "End of Quiz. Do you want to start over?",
-//                                              preferredStyle: .alert)
-//                let restartAction = UIAlertAction(title: "Restart",
-//                                                  style: .default,
-//                                                  handler: { action in self.shuffleQuestions() } )
-//                alert.addAction(restartAction)
-//                present(alert, animated: true, completion: nil)
-//          return
-//        }
-//  //      answer.turnGreen()
-//        score += 1
-//        showQuestion()
-//      } else {
-//        // wrong
-//
-//        if questionNumber > questions.count {
-//          // filling the scale fully
-//          progressView.progress = Float(questions.count)
-//          scoreLabel.text = "Score: \(score)"
-//
-//                let alert = UIAlertController(title: "Awesome",
-//                                              message: "End of Quiz. Do you want to start over?",
-//                                              preferredStyle: .alert)
-//                let restartAction = UIAlertAction(title: "Restart",
-//                                                  style: .default,
-//                                                  handler: { action in self.shuffleQuestions() } )
-//                alert.addAction(restartAction)
-//                present(alert, animated: true, completion: nil)
-//          return
-//        }
-//  //      answer.turnRed()
-//        showQuestion()
-//      }
-//    }
   
 }
   

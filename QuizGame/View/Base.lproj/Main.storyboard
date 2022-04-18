@@ -53,10 +53,85 @@
                             <constraint firstItem="o6V-R7-nMh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wJn-ZI-dI2"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startBtn" destination="o6V-R7-nMh" id="yq6-uI-3Av"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-125" y="117"/>
+        </scene>
+        <!--Levels View Controller-->
+        <scene sceneID="U5x-zd-4Hg">
+            <objects>
+                <viewController storyboardIdentifier="level" id="eom-fc-xbO" customClass="LevelsViewController" customModule="QuizGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KuV-7t-YQv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="u6y-wi-CEw">
+                                <rect key="frame" x="122.5" y="316" width="169.5" height="264"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPf-PO-otF">
+                                        <rect key="frame" x="0.0" y="0.0" width="169.5" height="48"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Elementary">
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="29"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="startGame" destination="eom-fc-xbO" eventType="touchUpInside" id="WIn-lF-UnV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djs-R5-Ctf">
+                                        <rect key="frame" x="0.0" y="108" width="169.5" height="48"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Middle">
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="29"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="startGame" destination="eom-fc-xbO" eventType="touchUpInside" id="g5Y-0E-0qd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3Z-Am-yUZ">
+                                        <rect key="frame" x="0.0" y="216" width="169.5" height="48"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Advanced">
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="29"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="startGame" destination="eom-fc-xbO" eventType="touchUpInside" id="3sH-ea-pSx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="djs-R5-Ctf" firstAttribute="width" secondItem="u6y-wi-CEw" secondAttribute="width" id="2Zd-qB-KkS"/>
+                                    <constraint firstItem="iPf-PO-otF" firstAttribute="width" secondItem="u6y-wi-CEw" secondAttribute="width" id="gmB-Xg-L6j"/>
+                                    <constraint firstItem="g3Z-Am-yUZ" firstAttribute="width" secondItem="u6y-wi-CEw" secondAttribute="width" id="kkE-EQ-Kcj"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gOY-o8-GBE"/>
+                        <color key="backgroundColor" red="0.12627045089688987" green="0.56241970920441442" blue="0.76867932081222534" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="u6y-wi-CEw" firstAttribute="centerY" secondItem="KuV-7t-YQv" secondAttribute="centerY" id="9jZ-H3-DNG"/>
+                            <constraint firstItem="u6y-wi-CEw" firstAttribute="centerX" secondItem="KuV-7t-YQv" secondAttribute="centerX" id="zpR-W9-0ze"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="advancedBtn" destination="g3Z-Am-yUZ" id="t0o-8S-PQY"/>
+                        <outlet property="elementaryBtn" destination="iPf-PO-otF" id="tcR-nf-fEI"/>
+                        <outlet property="middleBtn" destination="djs-R5-Ctf" id="sB3-yy-sZ1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B72-69-lA9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="742" y="117"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="XZZ-zN-cym">
@@ -170,7 +245,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzd-J8-3pJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="623.1884057971015" y="116.51785714285714"/>
+            <point key="canvasLocation" x="1603" y="117"/>
         </scene>
     </scenes>
     <resources>
@@ -179,6 +254,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

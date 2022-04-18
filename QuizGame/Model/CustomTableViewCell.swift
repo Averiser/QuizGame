@@ -37,6 +37,7 @@ class CustomTableViewCell: UITableViewCell {
       let go_red = CABasicAnimation(keyPath: "backgroundColor")
       go_red.fromValue = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
       go_red.toValue = UIColor.red.cgColor
+      go_red.duration = 2
       go_red.autoreverses = false
       go_red.repeatCount = 1
     //  go_red.initialVelocity = 3
