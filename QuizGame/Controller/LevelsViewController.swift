@@ -19,7 +19,7 @@ class LevelsViewController: UIViewController {
       configureButtons()
   }
   
- private func configureButtons() {
+ func configureButtons() {
     elementaryBtn.layer.cornerRadius = 0.05 * elementaryBtn.bounds.size.width
     middleBtn.layer.cornerRadius = 0.05 * middleBtn.bounds.size.width
     advancedBtn.layer.cornerRadius = 0.05 * advancedBtn.bounds.size.width
@@ -54,21 +54,46 @@ class LevelsViewController: UIViewController {
 //  }
   
   
+//  private func navigateToGame(_ sender: Any) {
+//    let vc = storyboard?.instantiateViewController(withIdentifier: "game") as! GameViewController
+//    guard let button = sender as? UIButton,
+//          let buttonText = button.titleLabel?.text else {
+//            print("Could not get button's text")
+//            return
+//          }
+//    guard let questionSet = GameViewController.questionSets[buttonText] else {
+//      print("No question set exists for \(buttonText.debugDescription)")
+//      return
+//    }
+//    vc.questions = questionSet
+//    // Present `vc`
+//    navigationController?.pushViewController(vc, animated: true)
+//    
+////    vc.modalPresentationStyle = .fullScreen
+////    present(vc, animated: true)
+//  }
   
-  private func navigateToGame() {
-    let vc = storyboard?.instantiateViewController(withIdentifier: "game") as! GameViewController
+  
+  @IBAction func startGame(_ sender: Any) {
+  
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier: "game") as! GameViewController
+    guard let button = sender as? UIButton,
+          let buttonText = button.titleLabel?.text else {
+            print("Could not get button's text")
+            return
+          }
+    guard let questionSet = GameViewController.questionSets[buttonText] else {
+      print("No question set exists for \(buttonText.debugDescription)")
+      return
+    }
+    vc.questions = questionSet
+    // Present `vc`
+//    navigationController?.pushViewController(vc, animated: true)
     vc.modalPresentationStyle = .fullScreen
     present(vc, animated: true)
-    
-  }
-  
-  @IBAction func startGame() {
-    navigateToGame()
   }
   
 
 }
 
-//extension UIButton.Configuration {
-//  let button = UIButton.corner
-//}

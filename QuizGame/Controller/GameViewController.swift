@@ -16,58 +16,109 @@ class GameViewController: UIViewController {
   @IBOutlet weak var progressView: UIProgressView!
   @IBOutlet private var questionNumberLabel: UILabel!
   @IBOutlet private var questionNameLabel: UILabel!
-  @IBOutlet private var tableView: UITableView!
+  @IBOutlet weak var tableView: UITableView!
   
   // MARK: - Properties
   
-  private var questions = [
-    Question(text: "What is 2 + 2?", answers: [
-      Answer(text: "1", correct: false),
-      Answer(text: "2", correct: false),
-      Answer(text: "4", correct: true),
-      Answer(text: "7", correct: false)
-      ]),
-    Question(text: "What is 2 + 10?", answers: [
-      Answer(text: "1", correct: false),
-      Answer(text: "12", correct: true),
-      Answer(text: "4", correct: false),
-      Answer(text: "7", correct: false)
-      ]),
-    Question(text: "What is 7 - 1?", answers: [
-      Answer(text: "1", correct: false),
-      Answer(text: "0", correct: false),
-      Answer(text: "6", correct: true),
-      Answer(text: "3", correct: false)
-      ]),
-    Question(text: "What is 100 + 50?", answers: [
-      Answer(text: "3", correct: false),
-      Answer(text: "12", correct: false),
-      Answer(text: "150", correct: true),
-      Answer(text: "70", correct: false)
-      ]),
-    Question(text: "What is 2 + 0?", answers: [
-      Answer(text: "1", correct: false),
-      Answer(text: "5", correct: false),
-      Answer(text: "4", correct: false),
-      Answer(text: "2", correct: true)
-      ])
+  
+  static let questionSets = [
+    "Beginners": [
+      //  private var questions = [
+          Question(text: "What is 2 + 2?", answers: [
+            Answer(text: "1", correct: false),
+            Answer(text: "2", correct: false),
+            Answer(text: "4", correct: true),
+            Answer(text: "7", correct: false)
+            ]),
+          Question(text: "What is 2 + 10?", answers: [
+            Answer(text: "1", correct: false),
+            Answer(text: "12", correct: true),
+            Answer(text: "4", correct: false),
+            Answer(text: "7", correct: false)
+            ]),
+          Question(text: "What is 7 - 1?", answers: [
+            Answer(text: "1", correct: false),
+            Answer(text: "0", correct: false),
+            Answer(text: "6", correct: true),
+            Answer(text: "3", correct: false)
+            ]),
+          Question(text: "What is 100 + 50?", answers: [
+            Answer(text: "3", correct: false),
+            Answer(text: "12", correct: false),
+            Answer(text: "150", correct: true),
+            Answer(text: "70", correct: false)
+            ]),
+          Question(text: "What is 2 + 0?", answers: [
+            Answer(text: "1", correct: false),
+            Answer(text: "5", correct: false),
+            Answer(text: "4", correct: false),
+            Answer(text: "2", correct: true)
+            ])
+      //  ]
+    ],
+    "Middle": [
+      Question(text: "What is 2 * 2?", answers: [
+        Answer(text: "1", correct: false),
+        Answer(text: "2", correct: false),
+        Answer(text: "4", correct: true),
+        Answer(text: "7", correct: false)
+        ]),
+      Question(text: "What is 2 * 10?", answers: [
+        Answer(text: "1", correct: false),
+        Answer(text: "12", correct: false),
+        Answer(text: "20", correct: true),
+        Answer(text: "7", correct: false)
+        ])
+    ],
+    "Advanced": [
+      Question(text: "What is 2 / 2?", answers: [
+        Answer(text: "1", correct: true),
+        Answer(text: "2", correct: false),
+        Answer(text: "4", correct: false),
+        Answer(text: "7", correct: false)
+        ]),
+      Question(text: "What is 10 / 2?", answers: [
+        Answer(text: "1", correct: false),
+        Answer(text: "12", correct: false),
+        Answer(text: "4", correct: false),
+        Answer(text: "5", correct: true)
+        ])
+    ]
   ]
+  
+  var questions: [Question]!
   private var shuffledQuestions: [Question] = []
   private var currentQuestion: Question?
   private var questionNumber: Int = 0
   private var score: Int = 0
   
   // MARK: - Lifecycle
+  
+//  var QuestionView = UITableView()
+//  self.view.addSubview(questionView)
 
     override func viewDidLoad() {
       super.viewDidLoad()
       configureTableView()
       shuffleQuestions()
+      
+      for question in questions {
+        let questionView = QuestionView(question: question)
+//        // Add `questionView` to a `UITableView`,
+//                 // or add it as a subview of `self.view` and
+//                 // then position it using constraints
+        self.view.addSubview(questionView)
+      }
+
+
     }
   
   // MARK: - Configure UI
   
   private func configureTableView() {
+    
+//    self.view.addSubview(questionView)
+    
     tableView.delegate = self
     tableView.dataSource = self
     tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
@@ -105,7 +156,6 @@ class GameViewController: UIViewController {
   private func updateUI() {
     progressView.progress = Float((questionNumber-1)/questions.count)
     scoreLabel.text = "Score: \(score)"
-//    questionNumber += 1
     
     if questionNumber > questions.count {
       let alert = UIAlertController(title: "Awesome",
@@ -148,9 +198,7 @@ class GameViewController: UIViewController {
     
       guard let question = currentQuestion else { return }
       let answer = question.answers[indexPath.row]
-      
-//      checkAnswer(for: answer)
-      
+            
       if answer.correct {
         score += 1
         cell.turnGreen()

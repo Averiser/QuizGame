@@ -20,6 +20,7 @@
 		E4E7D0A0280B1308007FF32A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7D09E280B1308007FF32A /* CustomTableViewCell.swift */; };
 		E4E7D0A1280B1308007FF32A /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E7D09F280B1308007FF32A /* CustomTableViewCell.xib */; };
 		E4E7D0A3280DCFD4007FF32A /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7D0A2280DCFD4007FF32A /* LevelsViewController.swift */; };
+		E4E7D0A528118557007FF32A /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7D0A428118557007FF32A /* QuestionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		E4E7D09E280B1308007FF32A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		E4E7D09F280B1308007FF32A /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		E4E7D0A2280DCFD4007FF32A /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
+		E4E7D0A428118557007FF32A /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				E403C82527E89F8400FE8195 /* Question.swift */,
 				E403C82727E8A01F00FE8195 /* Answer.swift */,
+				E4E7D0A428118557007FF32A /* QuestionView.swift */,
 				E4E7D0782805CA83007FF32A /* UIButtonExtension.swift */,
 				E4E7D09E280B1308007FF32A /* CustomTableViewCell.swift */,
 				E4E7D09F280B1308007FF32A /* CustomTableViewCell.xib */,
@@ -184,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4E7D0A528118557007FF32A /* QuestionView.swift in Sources */,
 				E4E7D0A3280DCFD4007FF32A /* LevelsViewController.swift in Sources */,
 				E403C82627E89F8400FE8195 /* Question.swift in Sources */,
 				E498E5FA27CE92BE000E980B /* GameViewController.swift in Sources */,
