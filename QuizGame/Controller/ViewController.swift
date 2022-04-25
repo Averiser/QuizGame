@@ -9,7 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
   
-  
   @IBOutlet weak var startBtn: UIButton!
   
   // MARK: - Lifecycle
@@ -23,13 +22,14 @@ class ViewController: UIViewController {
   
   private func navigateToGame() {
     let vc = storyboard?.instantiateViewController(withIdentifier: "level") as! LevelsViewController
+    let rootVC = UIViewController()
+    let navVC = UINavigationController(rootViewController: rootVC)
     
-//    navigationController?.pushViewController(vc, animated: true)
+    present(navVC, animated: true)
+    navVC.pushViewController(vc, animated: true)
     
-    vc.modalPresentationStyle = .fullScreen
-    present(vc, animated: true)
   }
-  
+
   //  MARK: - IBActions
   
   @IBAction func startGame() {

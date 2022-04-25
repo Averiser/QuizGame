@@ -89,9 +89,14 @@ class LevelsViewController: UIViewController {
     }
     vc.questions = questionSet
     // Present `vc`
+    let rootVC = UIViewController()
+    let navVC = UINavigationController(rootViewController: rootVC)
+    
+    present(navVC, animated: true)
+    navVC.pushViewController(vc, animated: true)
 //    navigationController?.pushViewController(vc, animated: true)
-    vc.modalPresentationStyle = .fullScreen
-    present(vc, animated: true)
+//    vc.modalPresentationStyle = .fullScreen
+//    present(vc, animated: true)
   }
   
 
