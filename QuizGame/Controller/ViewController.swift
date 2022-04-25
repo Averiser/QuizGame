@@ -23,6 +23,9 @@ class ViewController: UIViewController {
   
   private func navigateToGame() {
     let vc = storyboard?.instantiateViewController(withIdentifier: "level") as! LevelsViewController
+    
+//    navigationController?.pushViewController(vc, animated: true)
+    
     vc.modalPresentationStyle = .fullScreen
     present(vc, animated: true)
   }
