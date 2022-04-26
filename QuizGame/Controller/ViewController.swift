@@ -15,29 +15,29 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .systemTeal
-    navigationItem.title = "Quiz Game"
-    let button = UIButton(frame: CGRect(x: 200, y: 200, width: 200, height: 40))
-    button.backgroundColor = .systemBlue
-    button.center
-    view.addSubview(button)
-    button.setTitle("Start", for: .normal)
-    button.layer.cornerRadius = 0.5 // doesn't work, 'm doing smth wrong.
-    button.addTarget(self, action: #selector(navigateToGame), for: .touchUpInside)
+//    view.backgroundColor = .systemTeal
+//    navigationItem.title = "Quiz Game"
+//    let button = UIButton(frame: CGRect(x: 200, y: 200, width: 200, height: 40))
+//    button.backgroundColor = .systemBlue
+//    button.center
+//    view.addSubview(button)
+//    button.setTitle("Start", for: .normal)
+//    button.layer.cornerRadius = 0.5 // doesn't work, 'm doing smth wrong.
+//    button.addTarget(self, action: #selector(navigateToGame), for: .touchUpInside)
     
-//    view.addSubview(startBtn)
-//    startBtn.layer.cornerRadius = 0.05 * startBtn.bounds.size.width
+    view.addSubview(startBtn)
+    startBtn.layer.cornerRadius = 0.05 * startBtn.bounds.size.width
   }
   
   // MARK: - Private  methods
   
- @objc private func navigateToGame() {
-//    let vc = storyboard?.instantiateViewController(withIdentifier: "level") as! LevelsViewController
+// @objc
+  private func navigateToGame() {
+    let vc = storyboard?.instantiateViewController(withIdentifier: "level") as! LevelsViewController
 //    let rootVC = UIViewController()
-//    let navVC = UINavigationController(rootViewController: rootVC)
+//    let navVC = UINavigationController(rootViewController: UIViewController())
     
 //    present(navVC, animated: true)
-    let vc = LevelsViewController()
     navigationController?.pushViewController(vc, animated: true)
     
   }
