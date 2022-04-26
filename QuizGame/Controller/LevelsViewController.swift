@@ -20,9 +20,9 @@ class LevelsViewController: UIViewController {
   }
   
  func configureButtons() {
-    elementaryBtn.layer.cornerRadius = 0.05 * elementaryBtn.bounds.size.width
-    middleBtn.layer.cornerRadius = 0.05 * middleBtn.bounds.size.width
-    advancedBtn.layer.cornerRadius = 0.05 * advancedBtn.bounds.size.width
+//    elementaryBtn.layer.cornerRadius = 0.05 * elementaryBtn.bounds.size.width
+//    middleBtn.layer.cornerRadius = 0.05 * middleBtn.bounds.size.width
+//    advancedBtn.layer.cornerRadius = 0.05 * advancedBtn.bounds.size.width
   }
   
 // func createButton() {

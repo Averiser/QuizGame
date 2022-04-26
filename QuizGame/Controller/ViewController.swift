@@ -15,18 +15,30 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    startBtn.layer.cornerRadius = 0.05 * startBtn.bounds.size.width
+    view.backgroundColor = .systemTeal
+    navigationItem.title = "Quiz Game"
+    let button = UIButton(frame: CGRect(x: 200, y: 200, width: 200, height: 40))
+    button.backgroundColor = .systemBlue
+    button.center
+    view.addSubview(button)
+    button.setTitle("Start", for: .normal)
+    button.layer.cornerRadius = 0.5 // doesn't work, 'm doing smth wrong.
+    button.addTarget(self, action: #selector(navigateToGame), for: .touchUpInside)
+    
+//    view.addSubview(startBtn)
+//    startBtn.layer.cornerRadius = 0.05 * startBtn.bounds.size.width
   }
   
   // MARK: - Private  methods
   
-  private func navigateToGame() {
-    let vc = storyboard?.instantiateViewController(withIdentifier: "level") as! LevelsViewController
-    let rootVC = UIViewController()
-    let navVC = UINavigationController(rootViewController: rootVC)
+ @objc private func navigateToGame() {
+//    let vc = storyboard?.instantiateViewController(withIdentifier: "level") as! LevelsViewController
+//    let rootVC = UIViewController()
+//    let navVC = UINavigationController(rootViewController: rootVC)
     
-    present(navVC, animated: true)
-    navVC.pushViewController(vc, animated: true)
+//    present(navVC, animated: true)
+    let vc = LevelsViewController()
+    navigationController?.pushViewController(vc, animated: true)
     
   }
 
