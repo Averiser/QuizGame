@@ -34,7 +34,7 @@ class LevelsViewController: UIViewController {
             print("Could not get button's text")
             return
           }
-    guard let questionSet = GameViewController.questionSets[buttonText] else {
+    guard let questionSet = QuestioinSets.questionSets[buttonText] else {
       print("No question set exists for \(buttonText.debugDescription)")
       return
     }
