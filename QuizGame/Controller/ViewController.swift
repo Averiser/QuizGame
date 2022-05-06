@@ -31,15 +31,13 @@ class ViewController: UIViewController {
   
   // MARK: - Private  methods
   
-// @objc
-  private func navigateToGame() {
+ @objc private func navigateToGame() {
     let vc = storyboard?.instantiateViewController(withIdentifier: "level") as! LevelsViewController
 //    let rootVC = UIViewController()
 //    let navVC = UINavigationController(rootViewController: UIViewController())
     
 //    present(navVC, animated: true)
     navigationController?.pushViewController(vc, animated: true)
-    
   }
 
   //  MARK: - IBActions

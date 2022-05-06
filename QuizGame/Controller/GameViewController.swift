@@ -87,6 +87,12 @@ class GameViewController: UIViewController {
 
   }
   
+  func popToLevelsViewController() {
+      if let firstViewController = self.navigationController?.viewControllers[1] {
+          self.navigationController?.popToViewController(firstViewController, animated: true)
+      }
+  }
+  
   private func updateUI() {
     progressView.progress = Float((questionNumber-1)/questions.count)
     scoreLabel.text = "Score: \(score)"
@@ -98,10 +104,18 @@ class GameViewController: UIViewController {
       let restartAction = UIAlertAction(title: "Restart",
                                         style: .default,
                                         handler: { action in self.shuffleQuestions() } )
+      let mainPageAction = UIAlertAction(title: "Return to main menu",
+                                         style: .default,
+                                         handler: { action in self.dismiss(animated: true) {
+        self.popToLevelsViewController()
+      }  }
+//                                         handler: { action in self.go(to: LevelsViewController) }
+      )
       alert.addAction(restartAction)
+      alert.addAction(mainPageAction)
       present(alert, animated: true, completion: nil)
     } else {
-      showQuestion()
+      showQuestion()    
     }
     
   }
