@@ -88,18 +88,18 @@ class GameViewController: UIViewController {
   }
   
   func popToLevelsViewController() {
-      if let firstViewController = self.navigationController?.viewControllers[1] {
-          self.navigationController?.popToViewController(firstViewController, animated: true)
-      }
-  
-//  guard let viewControllers = self.navigationController?.viewControllers else { return }
-//
-//  for firstViewController in viewControllers {
-//    if firstViewController is LevelsViewController {
-//      self.navigationController?.popToViewController(firstViewController, animated: true)
-//      break
+//      if let firstViewController = self.navigationController?.viewControllers[1] {
+//          self.navigationController?.popToViewController(firstViewController, animated: true)
 //      }
-//    }
+  
+  guard let viewControllers = self.navigationController?.viewControllers else { return }
+
+  for firstViewController in viewControllers {
+    if firstViewController is LevelsViewController {
+      self.navigationController?.popToViewController(firstViewController, animated: true)
+      break
+      }
+    }
   }
   
   private func updateUI() {
@@ -115,10 +115,7 @@ class GameViewController: UIViewController {
                                         handler: { action in self.shuffleQuestions() } )
       let mainPageAction = UIAlertAction(title: "Return to main menu",
                                          style: .default,
-                                         handler: { action in self.dismiss(animated: true) { self.popToLevelsViewController() }
-      }
-//                                         handler: { action in self.go(to: LevelsViewController) }
-      )
+                                         handler: { action in self.popToLevelsViewController() } )
       alert.addAction(restartAction)
       alert.addAction(mainPageAction)
       present(alert, animated: true, completion: nil)
