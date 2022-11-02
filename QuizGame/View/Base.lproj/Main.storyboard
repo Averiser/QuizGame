@@ -135,7 +135,7 @@
                             <constraint firstItem="u6y-wi-CEw" firstAttribute="centerX" secondItem="KuV-7t-YQv" secondAttribute="centerX" id="zpR-W9-0ze"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="O5p-XL-44T"/>
+                    <navigationItem key="navigationItem" style="editor" id="O5p-XL-44T"/>
                     <connections>
                         <outlet property="advancedBtn" destination="g3Z-Am-yUZ" id="t0o-8S-PQY"/>
                         <outlet property="elementaryBtn" destination="iPf-PO-otF" id="tcR-nf-fEI"/>

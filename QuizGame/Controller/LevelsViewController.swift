@@ -17,7 +17,27 @@ class LevelsViewController: UIViewController {
       super.viewDidLoad()
 //      createButton()
       configureButtons()
+    
+//    setupNavigationItems()
+    
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: "Something", style: .plain, target: nil, action: nil)
+    
   }
+  
+//  private func setupNavigationItems() {
+//    let label = UILabel()
+//
+//    label.translatesAutoresizingMaskIntoConstraints = false
+//
+//    label.text = "Go back"
+//    label.textColor = UIColor.cyan
+//    label.textAlignment = .left
+//    navigationItem.titleView = label
+//
+//    if let navigationBar = navigationController?.navigationBar {
+//      label.widthAnchor.constraint(equalTo: navigationBar.widthAnchor, multiplier: 0.8).isActive = true
+//    }
+//  }
   
  func configureButtons() {
     elementaryBtn.layer.cornerRadius = 0.05 * elementaryBtn.bounds.size.width
