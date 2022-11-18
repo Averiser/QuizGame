@@ -10,4 +10,5 @@ import Foundation
 struct Question {
   let text: String
   var answers: [Answer]
+  let explanation: String
 }

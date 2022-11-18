@@ -102,13 +102,17 @@ class GameViewController: UIViewController {
     }
   }
   
+  private func answersList() {
+    
+  }
+  
   private func updateUI() {
     progressView.progress = Float((questionNumber-1)/questions.count)
     scoreLabel.text = "Score: \(score)"
     
     if questionNumber > questions.count {
       let alert = UIAlertController(title: "Awesome",
-                                    message: "End of Quiz. Do you want to start over?",
+                                    message: "End of Quiz. Your result is: \(score) out of \(questions.count)! Do your want to start over?",
                                     preferredStyle: .alert)
       let restartAction = UIAlertAction(title: "Restart",
                                         style: .default,
@@ -116,8 +120,14 @@ class GameViewController: UIViewController {
       let mainPageAction = UIAlertAction(title: "Return to main menu",
                                          style: .default,
                                          handler: { action in self.popToLevelsViewController() } )
+      let explanationAction = UIAlertAction(title: "Answer explanations",
+                                            style: .default,
+                                            handler: { action in
+                                                self.answersList() }
+                                            )
       alert.addAction(restartAction)
       alert.addAction(mainPageAction)
+      alert.addAction(explanationAction)
       present(alert, animated: true, completion: nil)
     } else {
       showQuestion()    
