@@ -26,6 +26,8 @@ class GameViewController: UIViewController {
   private var questionNumber: Int = 0
   private var score: Int = 0
   
+  let userDefaults = UserDefaults()
+  
   // MARK: - Lifecycle
   
 //  var QuestionView = UITableView()
@@ -43,9 +45,12 @@ class GameViewController: UIViewController {
 //                 // then position it using constraints
         self.view.addSubview(questionView)
       }
-
-
     }
+  
+  private func answersList() {
+    UserDefaults.standard.string(forKey: "key")
+  }
+  
   
   // MARK: - Configure UI
   
@@ -102,17 +107,13 @@ class GameViewController: UIViewController {
     }
   }
   
-  private func answersList() {
-    
-  }
-  
   private func updateUI() {
     progressView.progress = Float((questionNumber-1)/questions.count)
     scoreLabel.text = "Score: \(score)"
     
     if questionNumber > questions.count {
       let alert = UIAlertController(title: "Awesome",
-                                    message: "End of Quiz. Your result is: \(score) out of \(questions.count)! Do your want to start over?",
+                                    message: "End of Quiz. Your result is: \(score) out of \(questions.count)! Do you want to start over?",
                                     preferredStyle: .alert)
       let restartAction = UIAlertAction(title: "Restart",
                                         style: .default,
@@ -132,7 +133,6 @@ class GameViewController: UIViewController {
     } else {
       showQuestion()    
     }
-    
   }
   
 }

@@ -18,7 +18,7 @@ struct QuestioinSets {
             Answer(text: "4", correct: true),
             Answer(text: "7", correct: false)
           ],
-            explanation: "The correct answer will be is as it is a Singular form."),
+            explanation: "The correct answer will be ___ as it is a Singular form."),
           Question(text: "What is 2 + 10?", answers: [
             Answer(text: "1", correct: false),
             Answer(text: "12", correct: true),
