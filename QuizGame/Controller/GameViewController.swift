@@ -48,16 +48,12 @@ class GameViewController: UIViewController {
     }
   
   private func answersList() {
-    UserDefaults.standard.string(forKey: "key")
+//    UserDefaults.standard.string(forKey: "key")
   }
-  
   
   // MARK: - Configure UI
   
   private func configureTableView() {
-    
-//    self.view.addSubview(questionView)
-    
     tableView.delegate = self
     tableView.dataSource = self
     tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
@@ -89,7 +85,6 @@ class GameViewController: UIViewController {
     questionNumber += 1
 
     tableView.reloadData()
-
   }
   
   func popToLevelsViewController() {
@@ -105,6 +100,16 @@ class GameViewController: UIViewController {
       break
       }
     }
+  }
+  
+  func pushToResultViewController() {
+    guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController
+    else {
+      return
+    }
+
+    vc.questions = questions
+    self.navigationController?.pushViewController(vc, animated: true)
   }
   
   private func updateUI() {
@@ -124,7 +129,7 @@ class GameViewController: UIViewController {
       let explanationAction = UIAlertAction(title: "Answer explanations",
                                             style: .default,
                                             handler: { action in
-                                                self.answersList() }
+                                                self.pushToResultViewController() }
                                             )
       alert.addAction(restartAction)
       alert.addAction(mainPageAction)
@@ -134,7 +139,6 @@ class GameViewController: UIViewController {
       showQuestion()    
     }
   }
-  
 }
   
   // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -172,9 +176,7 @@ class GameViewController: UIViewController {
       DispatchQueue.main.asyncAfter(deadline: .now()+1) {
         self.updateUI()
       }
-      
     }
-    
   }
   
   

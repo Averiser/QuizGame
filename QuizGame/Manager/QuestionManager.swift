@@ -7,11 +7,15 @@
 
 import Foundation
 
-struct QuestioinSets {
+struct QuestionManager {
+  enum LevelType: String {
+    case beginners = "Beginners"
+    case middle = "Middle"
+    case advanced = "Advanced"
+  }
   
-  static let questionSets = [
-    "Beginners": [
-      //  private var questions = [
+  static let questions: [LevelType: [Question]] = [
+    .beginners: [
           Question(text: "What is 2 + 2?", answers: [
             Answer(text: "1", correct: false),
             Answer(text: "2", correct: false),
@@ -49,9 +53,8 @@ struct QuestioinSets {
             Answer(text: "4", correct: false),
             Answer(text: "2", correct: true)
           ], explanation: "The correct answer will be is as it is a Singular form.")
-      //  ]
     ],
-    "Middle": [
+    .middle: [
       Question(text: "What is 2 * 2?", answers: [
         Answer(text: "1", correct: false),
         Answer(text: "2", correct: false),
@@ -83,7 +86,7 @@ struct QuestioinSets {
         Answer(text: "7", correct: false)
       ], explanation: "The correct answer will be is as it is a Singular form.")
     ],
-    "Advanced": [
+    .advanced: [
       Question(text: "What is 2 / 2?", answers: [
         Answer(text: "1", correct: true),
         Answer(text: "2", correct: false),
@@ -116,5 +119,4 @@ struct QuestioinSets {
       ], explanation: "The correct answer will be is as it is a Singular form.")
     ]
   ]
-  
 }

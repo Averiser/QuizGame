@@ -265,85 +265,49 @@
             </objects>
             <point key="canvasLocation" x="3423.1884057971015" y="116.51785714285714"/>
         </scene>
-        <!--Scroll View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="imL-WO-FSJ">
             <objects>
-                <viewController storyboardIdentifier="ScrollViewController" id="KRF-uF-x4s" customClass="ScrollViewController" customModule="QuizGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultViewController" id="KRF-uF-x4s" customClass="ResultViewController" customModule="QuizGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mLZ-UM-JTf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GUR-Tz-7MA">
-                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zgS-NH-COk">
-                                        <rect key="frame" x="163" y="170" width="110" height="256"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rCs-5x-PvD">
-                                                <rect key="frame" x="0.0" y="0.0" width="110" height="128"/>
-                                                <color key="backgroundColor" systemColor="systemMintColor"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z0C-rv-Epf">
-                                                <rect key="frame" x="0.0" y="128" width="110" height="128"/>
-                                                <color key="backgroundColor" systemColor="systemMintColor"/>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="zgS-NH-COk" firstAttribute="width" secondItem="GUR-Tz-7MA" secondAttribute="width" multiplier="0.2657" id="ADk-8v-yKA"/>
-                                </constraints>
-                            </scrollView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BSY-tP-Cht">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CustomTableViewCell" id="Hqy-VE-3Y5">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hqy-VE-3Y5" id="7sc-nr-IeL">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="KRF-uF-x4s" id="eVB-OP-UIz"/>
+                                    <outlet property="delegate" destination="KRF-uF-x4s" id="qkM-Gr-kLY"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FkE-xB-cBg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GUR-Tz-7MA" firstAttribute="top" secondItem="FkE-xB-cBg" secondAttribute="top" id="7iV-6v-9jR"/>
-                            <constraint firstItem="FkE-xB-cBg" firstAttribute="trailing" secondItem="GUR-Tz-7MA" secondAttribute="trailing" id="GPg-za-eIS"/>
-                            <constraint firstItem="GUR-Tz-7MA" firstAttribute="leading" secondItem="FkE-xB-cBg" secondAttribute="leading" id="WFj-rQ-7b1"/>
-                            <constraint firstItem="FkE-xB-cBg" firstAttribute="bottom" secondItem="GUR-Tz-7MA" secondAttribute="bottom" id="ZPd-cS-Te8"/>
+                            <constraint firstItem="FkE-xB-cBg" firstAttribute="bottom" secondItem="BSY-tP-Cht" secondAttribute="bottom" id="GJ2-zA-gbp"/>
+                            <constraint firstItem="FkE-xB-cBg" firstAttribute="trailing" secondItem="BSY-tP-Cht" secondAttribute="trailing" id="Q0s-aA-ZwM"/>
+                            <constraint firstItem="BSY-tP-Cht" firstAttribute="leading" secondItem="FkE-xB-cBg" secondAttribute="leading" id="eCC-kR-IVl"/>
+                            <constraint firstItem="BSY-tP-Cht" firstAttribute="top" secondItem="mLZ-UM-JTf" secondAttribute="top" id="xg8-be-tAw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="BSY-tP-Cht" id="aNW-Fn-4oz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jyu-gj-Hlm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4232" y="117"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="NkL-iH-czN">
-            <objects>
-                <viewController id="Y4T-QC-AGp" customClass="TableViewController" customModule="QuizGame" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="t0n-Vv-5BO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TDx-Ua-r0G">
-                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <tableView key="tableFooterView" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="XqT-kN-vqk">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                </tableView>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="5ZR-4G-18w"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="TDx-Ua-r0G" firstAttribute="bottom" secondItem="5ZR-4G-18w" secondAttribute="bottom" id="CfV-Ee-6ow"/>
-                            <constraint firstItem="TDx-Ua-r0G" firstAttribute="leading" secondItem="5ZR-4G-18w" secondAttribute="leading" id="CvH-F0-Ie9"/>
-                            <constraint firstItem="5ZR-4G-18w" firstAttribute="trailing" secondItem="TDx-Ua-r0G" secondAttribute="trailing" id="Dai-8G-auc"/>
-                            <constraint firstItem="TDx-Ua-r0G" firstAttribute="top" secondItem="5ZR-4G-18w" secondAttribute="top" id="JX1-fH-sQo"/>
-                            <constraint firstItem="TDx-Ua-r0G" firstAttribute="top" secondItem="5ZR-4G-18w" secondAttribute="top" id="W5A-Ol-A2a"/>
-                            <constraint firstItem="5ZR-4G-18w" firstAttribute="bottom" secondItem="TDx-Ua-r0G" secondAttribute="bottom" id="YgN-Nq-MqG"/>
-                            <constraint firstItem="TDx-Ua-r0G" firstAttribute="trailing" secondItem="5ZR-4G-18w" secondAttribute="trailing" id="dLV-N3-TlG"/>
-                            <constraint firstItem="TDx-Ua-r0G" firstAttribute="leading" secondItem="5ZR-4G-18w" secondAttribute="leading" id="y7r-eg-Wib"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yIC-Yw-TcV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4978" y="117"/>
+            <point key="canvasLocation" x="4231.884057971015" y="116.51785714285714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aBC-DA-AS9">
@@ -370,9 +334,6 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

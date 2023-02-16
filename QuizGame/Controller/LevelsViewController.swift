@@ -46,26 +46,22 @@ class LevelsViewController: UIViewController {
   }
   
   @IBAction func startGame(_ sender: Any) {
-  
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "game") as! GameViewController
     guard let button = sender as? UIButton,
-          let buttonText = button.titleLabel?.text else {
-            print("Could not get button's text")
+          let text = button.titleLabel?.text,
+          let levelType = QuestionManager.LevelType(rawValue: text) else {
+        print("Could not get button's text")
             return
           }
-    guard let questionSet = QuestioinSets.questionSets[buttonText] else {
-      print("No question set exists for \(buttonText.debugDescription)")
+    
+    guard let questions = QuestionManager.questions[levelType]
+      else {
+      print("No question set exists for \(levelType)")
       return
     }
-    vc.questions = questionSet
-    // Present `vc`
-//    let rootVC = UIViewController()
-//    let navVC = UINavigationController(rootViewController: rootVC)
-    
+    vc.questions = questions
     navigationController?.pushViewController(vc, animated: true)
   }
-  
-
 }
 
