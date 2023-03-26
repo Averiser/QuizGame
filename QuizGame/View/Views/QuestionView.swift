@@ -14,7 +14,7 @@ class QuestionView: UIView {
   
   init(question: Question) {
     self.question = question
-    super.init(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
+    super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
   }
   
   required init?(coder: NSCoder) {

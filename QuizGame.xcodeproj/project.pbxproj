@@ -23,6 +23,7 @@
 		E4E7D0A1280B1308007FF32A /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E7D09F280B1308007FF32A /* CustomTableViewCell.xib */; };
 		E4E7D0A3280DCFD4007FF32A /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7D0A2280DCFD4007FF32A /* LevelsViewController.swift */; };
 		E4E7D0A528118557007FF32A /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7D0A428118557007FF32A /* QuestionView.swift */; };
+		E4EA286D29B64BF7004A5587 /* QuestionsArrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EA286C29B64BF7004A5587 /* QuestionsArrayView.swift */; };
 		E4EE189E2977805E004DB289 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EE189D2977805E004DB289 /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		E4E7D09F280B1308007FF32A /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		E4E7D0A2280DCFD4007FF32A /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
 		E4E7D0A428118557007FF32A /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		E4EA286C29B64BF7004A5587 /* QuestionsArrayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsArrayView.swift; sourceTree = "<group>"; };
 		E4EE189D2977805E004DB289 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				E4B78FF4299E74B4001F0C74 /* Cells */,
-				E4B78FF3299E749F001F0C74 /* Views */,
 				E498E5E927CE8E6C000E980B /* ViewController.swift */,
 				E4E7D0A2280DCFD4007FF32A /* LevelsViewController.swift */,
 				E498E5F927CE92BE000E980B /* GameViewController.swift */,
@@ -84,6 +85,7 @@
 		E403C82A27E8B8CB00FE8195 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E4B78FF3299E749F001F0C74 /* Views */,
 				E4B78FF2299E746E001F0C74 /* Cells */,
 				E498E5EB27CE8E6C000E980B /* Main.storyboard */,
 			);
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				E4E7D0A428118557007FF32A /* QuestionView.swift */,
+				E4EA286C29B64BF7004A5587 /* QuestionsArrayView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4EA286D29B64BF7004A5587 /* QuestionsArrayView.swift in Sources */,
 				E4E7D0A528118557007FF32A /* QuestionView.swift in Sources */,
 				E4E2DB292994086700F18C6F /* CustomFinalCell.swift in Sources */,
 				E4E7D0A3280DCFD4007FF32A /* LevelsViewController.swift in Sources */,

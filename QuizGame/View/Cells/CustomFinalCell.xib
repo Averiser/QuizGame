@@ -5,56 +5,38 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomFinalCell" rowHeight="82" id="KGk-i7-Jjw" customClass="CustomFinalCell" customModule="QuizGame" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customFinalCell" rowHeight="82" id="KGk-i7-Jjw" customClass="CustomFinalCell" customModule="QuizGame" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="335" height="82"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="335" height="82"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAj-CS-VIS">
-                        <rect key="frame" x="5" y="5" width="325" height="72"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sa-ty-qjc" customClass="Cusst">
-                                <rect key="frame" x="4" y="4" width="317" height="64"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="3Sa-ty-qjc" secondAttribute="bottom" constant="4" id="0Oy-KA-qdO"/>
-                            <constraint firstItem="3Sa-ty-qjc" firstAttribute="leading" secondItem="RAj-CS-VIS" secondAttribute="leading" constant="4" id="8JM-1x-6ii"/>
-                            <constraint firstItem="3Sa-ty-qjc" firstAttribute="top" secondItem="RAj-CS-VIS" secondAttribute="top" constant="4" id="N4O-eR-Trf"/>
-                            <constraint firstAttribute="trailing" secondItem="3Sa-ty-qjc" secondAttribute="trailing" constant="4" id="Rvg-ed-iBy"/>
-                        </constraints>
-                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzb-dl-TO6">
+                        <rect key="frame" x="8" y="8" width="319" height="66"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="RAj-CS-VIS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="4ha-ZQ-8y3"/>
-                    <constraint firstItem="RAj-CS-VIS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="AAA-4N-LBB"/>
-                    <constraint firstAttribute="trailing" secondItem="RAj-CS-VIS" secondAttribute="trailing" constant="5" id="H4m-ya-FWs"/>
-                    <constraint firstAttribute="bottom" secondItem="RAj-CS-VIS" secondAttribute="bottom" constant="5" id="KKS-3c-DN0"/>
+                    <constraint firstItem="tzb-dl-TO6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="UlH-FH-Vci"/>
+                    <constraint firstAttribute="bottom" secondItem="tzb-dl-TO6" secondAttribute="bottom" constant="8" id="cMT-nF-9hM"/>
+                    <constraint firstItem="tzb-dl-TO6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="snC-hj-VSI"/>
+                    <constraint firstAttribute="trailing" secondItem="tzb-dl-TO6" secondAttribute="trailing" constant="8" id="vRd-1Y-kij"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="questionLabel" destination="3Sa-ty-qjc" id="S13-2G-8Lb"/>
+                <outlet property="questionLabel" destination="tzb-dl-TO6" id="WvM-Sa-toA"/>
             </connections>
             <point key="canvasLocation" x="141.22137404580153" y="2.1126760563380285"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

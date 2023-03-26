@@ -1,5 +1,5 @@
 //
-//  QuestionSets.swift
+//  QuestionManager.swift
 //  QuizGame
 //
 //  Created by MyMacBook on 26.04.2022.
@@ -7,52 +7,62 @@
 
 import Foundation
 
-struct QuestionManager {
+class QuestionManager {
   enum LevelType: String {
     case beginners = "Beginners"
     case middle = "Middle"
     case advanced = "Advanced"
   }
   
-  static let questions: [LevelType: [Question]] = [
+  // MARK: - Properties
+  
+//  private (set) var questions: [Question] = []
+  public var questions: [Question] = []
+  private (set) var currentQuestion: Question?
+  private (set) var questionNumber: Int = 0
+  public var levelType: LevelType = .beginners
+  
+  // MARK: - Constants
+  
+  private let defaultQuestions: [LevelType: [Question]] = [
     .beginners: [
-          Question(text: "What is 2 + 2?", answers: [
-            Answer(text: "1", correct: false),
-            Answer(text: "2", correct: false),
-            Answer(text: "4", correct: true),
-            Answer(text: "7", correct: false)
-          ],
-            explanation: "The correct answer will be ___ as it is a Singular form."),
-          Question(text: "What is 2 + 10?", answers: [
-            Answer(text: "1", correct: false),
-            Answer(text: "12", correct: true),
-            Answer(text: "4", correct: false),
-            Answer(text: "7", correct: false)
-          ], explanation: "The correct answer will be is as it is a Singular form."),
-          Question(text: "What is 7 - 1?", answers: [
-            Answer(text: "1", correct: false),
-            Answer(text: "0", correct: false),
-            Answer(text: "6", correct: true),
-            Answer(text: "3", correct: false)
-          ], explanation: "The correct answer will be is as it is a Singular form."),
-          Question(text: "What is 100 + 50?", answers: [
-            Answer(text: "3", correct: false),
-            Answer(text: "12", correct: false),
-            Answer(text: "150", correct: true),
-            Answer(text: "70", correct: false)
-          ], explanation: "The correct answer will be is as it is a Singular form."),
-          Question(text: "What is 15 + (-5)?", answers: [
-            Answer(text: "3", correct: false),
-            Answer(text: "12", correct: false),
-            Answer(text: "110", correct: false),
-            Answer(text: "10", correct: true)
-          ], explanation: "The correct answer will be is as it is a Singular form."),
-          Question(text: "What is 2 + 0?", answers: [
-            Answer(text: "1", correct: false),
-            Answer(text: "5", correct: false),
-            Answer(text: "4", correct: false),
-            Answer(text: "2", correct: true)
-          ], explanation: "The correct answer will be is as it is a Singular form.")
+      Question(text: "What is 2 + 2?", answers: [
+        Answer(text: "1", correct: false),
+        Answer(text: "2", correct: false),
+        Answer(text: "4", correct: true),
+        Answer(text: "7", correct: false)
+      ],
+               explanation: "The correct answer will be ___ as it is a Singular form."),
+      Question(text: "What is 2 + 10?", answers: [
+        Answer(text: "1", correct: false),
+        Answer(text: "12", correct: true),
+        Answer(text: "4", correct: false),
+        Answer(text: "7", correct: false)
+      ], explanation: "The correct answer will be is as it is a Singular form."),
+      Question(text: "What is 7 - 1?", answers: [
+        Answer(text: "1", correct: false),
+        Answer(text: "0", correct: false),
+        Answer(text: "6", correct: true),
+        Answer(text: "3", correct: false)
+      ], explanation: "The correct answer will be is as it is a Singular form."),
+      Question(text: "What is 100 + 50?", answers: [
+        Answer(text: "3", correct: false),
+        Answer(text: "12", correct: false),
+        Answer(text: "150", correct: true),
+        Answer(text: "70", correct: false)
+      ], explanation: "The correct answer will be is as it is a Singular form."),
+      Question(text: "What is 15 + (-5)?", answers: [
+        Answer(text: "3", correct: false),
+        Answer(text: "12", correct: false),
+        Answer(text: "110", correct: false),
+        Answer(text: "10", correct: true)
+      ], explanation: "The correct answer will be is as it is a Singular form."),
+      Question(text: "What is 2 + 0?", answers: [
+        Answer(text: "1", correct: false),
+        Answer(text: "5", correct: false),
+        Answer(text: "4", correct: false),
+        Answer(text: "2", correct: true)
+      ], explanation: "The correct answer will be is as it is a Singular form.")
     ],
     .middle: [
       Question(text: "What is 2 * 2?", answers: [
@@ -119,4 +129,21 @@ struct QuestionManager {
       ], explanation: "The correct answer will be is as it is a Singular form.")
     ]
   ]
+  
+  // MARK: - Public methods
+  
+  public func shuffleQuestions() {
+    guard let questions = defaultQuestions[levelType]?.shuffled()
+    else {
+      return
+    }
+    
+    questionNumber = 1
+    self.questions = questions
+  }
+  
+  public func upQuestionNumber() {
+    currentQuestion = self.questions[questionNumber - 1]
+    questionNumber += 1
+  }
 }

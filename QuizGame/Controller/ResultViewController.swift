@@ -9,27 +9,48 @@ import UIKit
 
 class ResultViewController: UIViewController {
   
+  //   MARK: - Properties
+    
+    private var questionManager: QuestionManager!
+    private var questions: [Question] = []
+  
+  // MARK: - Create
+  
+  static func create(with questionManager: QuestionManager) -> ResultViewController {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier: "result") as! ResultViewController
+    vc.questionManager = questionManager
+//    vc.questionManager.questions = questionManager.questions
+    return vc
+  }
+  
   @IBOutlet weak var tableView: UITableView!
   
-//   MARK: - Properties
+  // MARK: - Private methods
 
-//  var questionView: UIView!
-
-  public var questions: [Question] = [] {
-    didSet {
-      print(questions)
-    }
-  }
   
   private func configureTableView() {
 
     tableView.delegate = self
     tableView.dataSource = self
-    tableView.register(UINib(nibName: "CustomFinalCell", bundle: nil), forCellReuseIdentifier: "CustomFinalCell")
-//    tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
-    tableView.reloadData()
+    tableView.register(UINib(nibName: "CustomFinalCell", bundle: nil), forCellReuseIdentifier: "customFinalCell")
+//    tableView.backgroundColor = .gray
+//    self.tableView.reloadData()
+    print("Hello, world!")
   }
   
+  private func configureQuestionsArrayView() {
+      let questionsArrayView = QuestionsArrayView(questions: questions)
+//          view.addSubview(questionsArrayView)
+    tableView.addSubview(questionsArrayView)
+  }
+  
+  private func configureQuestionView() {
+    for question in questions {
+      let questionView = QuestionView(question: question)
+      tableView.addSubview(questionView)
+    }
+  }
   
   // MARK: - Lifecycle
   
@@ -38,13 +59,18 @@ class ResultViewController: UIViewController {
       view.backgroundColor = .cyan
         navigationItem.setHidesBackButton(true, animated: true)
       configureTableView()
-     
-//      for question in questions {
-//        let questionView = QuestionView(question: question)
-//        self.view.addSubview(questionView)
+      configureQuestionsArrayView()  // doesn't work, nothing shows up on the screen 2023-03-17
+      configureQuestionView()
+
 //      }
-      
     }
+  
+//  override func viewWillAppear(_ animated: Bool) {
+//    super.viewWillAppear(animated)
+//    tableView.backgroundColor = .purple
+//    configureTableView()
+//    configureQuestionsArrayView()
+//  }
 }
 
 // MARK: UITableViewDelegate, UITableViewDataSource
@@ -53,32 +79,25 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return questions.count
-//    return 50
+//    return 10
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//    guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as? CustomTableViewCell else {
-//      return UITableViewCell()
-//    }
     
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomFinalCell", for: indexPath) as? CustomFinalCell else {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "customFinalCell", for: indexPath) as? CustomFinalCell else {
       return UITableViewCell()
     }
     
-//    if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomFinalCell", for: indexPath) as? CustomFinalCell {
-//      cell.questionLabel.text = self.questions[indexPath.row].text
-//      return cell
-//    }
+//    let question = questions[indexPath.row]
+//    cell.configure(with: question)
     
-//    cell.textLabel?.text = "cell \(indexPath.row)"
-//    return cell
+    let question = questionManager.questions[indexPath.row]
+    cell.configure(with: question)
     
-    cell.questionLabel.text = self.questions[indexPath.row].text
-          return cell
+//    cell.questionLabel?.text = questions[indexPath.row].text
     
-//    cell.textLabel?.text = questions[indexPath.row].text
-//    return cell
-//    return CustomFinalCell()
+//    cell.questionLabel?.text = "iyx"
+    return cell
+    
   }
-  
 }

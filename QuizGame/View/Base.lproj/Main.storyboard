@@ -268,38 +268,34 @@
         <!--Result View Controller-->
         <scene sceneID="imL-WO-FSJ">
             <objects>
-                <viewController storyboardIdentifier="ResultViewController" id="KRF-uF-x4s" customClass="ResultViewController" customModule="QuizGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="result" id="KRF-uF-x4s" customClass="ResultViewController" customModule="QuizGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mLZ-UM-JTf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BSY-tP-Cht">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BSY-tP-Cht" userLabel="tableView">
+                                <rect key="frame" x="20" y="37" width="374" height="822"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CustomTableViewCell" id="Hqy-VE-3Y5">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CustomFinalCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customFinalCell" id="Hqy-VE-3Y5" userLabel="CustomFinalCell" customClass="CustomFinalCell" customModule="QuizGame" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hqy-VE-3Y5" id="7sc-nr-IeL">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="KRF-uF-x4s" id="eVB-OP-UIz"/>
-                                    <outlet property="delegate" destination="KRF-uF-x4s" id="qkM-Gr-kLY"/>
+                                    <outlet property="dataSource" destination="KRF-uF-x4s" id="deG-A2-c6o"/>
+                                    <outlet property="delegate" destination="KRF-uF-x4s" id="N1D-wA-xYR"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FkE-xB-cBg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="FkE-xB-cBg" firstAttribute="bottom" secondItem="BSY-tP-Cht" secondAttribute="bottom" id="GJ2-zA-gbp"/>
-                            <constraint firstItem="FkE-xB-cBg" firstAttribute="trailing" secondItem="BSY-tP-Cht" secondAttribute="trailing" id="Q0s-aA-ZwM"/>
-                            <constraint firstItem="BSY-tP-Cht" firstAttribute="leading" secondItem="FkE-xB-cBg" secondAttribute="leading" id="eCC-kR-IVl"/>
-                            <constraint firstItem="BSY-tP-Cht" firstAttribute="top" secondItem="mLZ-UM-JTf" secondAttribute="top" id="xg8-be-tAw"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="BSY-tP-Cht" id="aNW-Fn-4oz"/>
@@ -337,6 +333,9 @@
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
