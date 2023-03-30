@@ -25,6 +25,9 @@
 		E4F8CD9C29D4DAC800FBA0EB /* PresentableAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8CD9B29D4DAC800FBA0EB /* PresentableAnswer.swift */; };
 		E4F8CD9E29D4DB2700FBA0EB /* CorrectAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8CD9D29D4DB2700FBA0EB /* CorrectAnswerCell.swift */; };
 		E4F8CDA029D4DB8C00FBA0EB /* WrongAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8CD9F29D4DB8C00FBA0EB /* WrongAnswerCell.swift */; };
+		E4F8CDA229D5FCA700FBA0EB /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8CDA129D5FCA600FBA0EB /* Result.swift */; };
+		E4F8CDA429D5FCEC00FBA0EB /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8CDA329D5FCEC00FBA0EB /* Router.swift */; };
+		E4F8CDA629D5FE5A00FBA0EB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8CDA529D5FE5A00FBA0EB /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		E4F8CD9B29D4DAC800FBA0EB /* PresentableAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableAnswer.swift; sourceTree = "<group>"; };
 		E4F8CD9D29D4DB2700FBA0EB /* CorrectAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectAnswerCell.swift; sourceTree = "<group>"; };
 		E4F8CD9F29D4DB8C00FBA0EB /* WrongAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongAnswerCell.swift; sourceTree = "<group>"; };
+		E4F8CDA129D5FCA600FBA0EB /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		E4F8CDA329D5FCEC00FBA0EB /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		E4F8CDA529D5FE5A00FBA0EB /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				E4F8CD8A29D1DBFC00FBA0EB /* Flow.swift */,
+				E4F8CDA129D5FCA600FBA0EB /* Result.swift */,
+				E4F8CDA329D5FCEC00FBA0EB /* Router.swift */,
+				E4F8CDA529D5FE5A00FBA0EB /* Game.swift */,
 			);
 			path = QuizEngine;
 			sourceTree = "<group>";
@@ -218,6 +227,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4F8CD8829D055FE00FBA0EB /* BasicScore.swift in Sources */,
+				E4F8CDA629D5FE5A00FBA0EB /* Game.swift in Sources */,
+				E4F8CDA229D5FCA700FBA0EB /* Result.swift in Sources */,
 				E403C82627E89F8400FE8195 /* Question.swift in Sources */,
 				E4F8CD8E29D2073F00FBA0EB /* QuestionViewController.swift in Sources */,
 				E4F8CD9C29D4DAC800FBA0EB /* PresentableAnswer.swift in Sources */,
@@ -226,6 +237,7 @@
 				E4F8CD9E29D4DB2700FBA0EB /* CorrectAnswerCell.swift in Sources */,
 				E4F8CD8B29D1DBFC00FBA0EB /* Flow.swift in Sources */,
 				E498E5E627CE8E6C000E980B /* AppDelegate.swift in Sources */,
+				E4F8CDA429D5FCEC00FBA0EB /* Router.swift in Sources */,
 				E4F8CDA029D4DB8C00FBA0EB /* WrongAnswerCell.swift in Sources */,
 				E498E5E827CE8E6C000E980B /* SceneDelegate.swift in Sources */,
 				E4F8CD9229D3928900FBA0EB /* ResultsViewController.swift in Sources */,
