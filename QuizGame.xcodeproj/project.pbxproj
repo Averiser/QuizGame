@@ -7,13 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E403C82627E89F8400FE8195 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E403C82527E89F8400FE8195 /* Question.swift */; };
+		E48E7D2429D96E4200B02B31 /* ResultsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E7D2329D96E4200B02B31 /* ResultsPresenter.swift */; };
 		E498E5E627CE8E6C000E980B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498E5E527CE8E6C000E980B /* AppDelegate.swift */; };
 		E498E5E827CE8E6C000E980B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498E5E727CE8E6C000E980B /* SceneDelegate.swift */; };
-		E498E5EF27CE8E6D000E980B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E498E5EE27CE8E6D000E980B /* Assets.xcassets */; };
 		E498E5F227CE8E6D000E980B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E498E5F027CE8E6D000E980B /* LaunchScreen.storyboard */; };
-		E4D6F56728184C91002CEAEF /* QuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D6F56628184C91002CEAEF /* QuestionManager.swift */; };
-		E4F8CD8829D055FE00FBA0EB /* BasicScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8CD8729D055FE00FBA0EB /* BasicScore.swift */; };
 		E4F8CD8B29D1DBFC00FBA0EB /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8CD8A29D1DBFC00FBA0EB /* Flow.swift */; };
 		E4F8CD8E29D2073F00FBA0EB /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8CD8D29D2073F00FBA0EB /* QuestionViewController.swift */; };
 		E4F8CD9029D2092C00FBA0EB /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4F8CD8F29D2092C00FBA0EB /* QuestionViewController.xib */; };
@@ -30,18 +27,16 @@
 		E4F8CDA629D5FE5A00FBA0EB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8CDA529D5FE5A00FBA0EB /* Game.swift */; };
 		E4F8CDA829D64B2100FBA0EB /* NavigationControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8CDA729D64B2100FBA0EB /* NavigationControllerRouter.swift */; };
 		E4F8CDAA29D7222300FBA0EB /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8CDA929D7222300FBA0EB /* Question.swift */; };
+		E4F8CDAC29D87A0300FBA0EB /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8CDAB29D87A0300FBA0EB /* ViewControllerFactory.swift */; };
+		E4F8CDAE29D87AFA00FBA0EB /* iOSViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F8CDAD29D87AFA00FBA0EB /* iOSViewControllerFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E403C82527E89F8400FE8195 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		E48E7D2329D96E4200B02B31 /* ResultsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPresenter.swift; sourceTree = "<group>"; };
 		E498E5E227CE8E6C000E980B /* QuizGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E498E5E527CE8E6C000E980B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E498E5E727CE8E6C000E980B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E498E5EE27CE8E6D000E980B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E498E5F127CE8E6D000E980B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E498E5F327CE8E6D000E980B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4D6F56628184C91002CEAEF /* QuestionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionManager.swift; sourceTree = "<group>"; };
-		E4F8CD8729D055FE00FBA0EB /* BasicScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BasicScore.swift; path = ../../../../../../../BasicScore.swift; sourceTree = "<group>"; };
 		E4F8CD8A29D1DBFC00FBA0EB /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		E4F8CD8D29D2073F00FBA0EB /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		E4F8CD8F29D2092C00FBA0EB /* QuestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
@@ -58,6 +53,8 @@
 		E4F8CDA529D5FE5A00FBA0EB /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		E4F8CDA729D64B2100FBA0EB /* NavigationControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouter.swift; sourceTree = "<group>"; };
 		E4F8CDA929D7222300FBA0EB /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		E4F8CDAB29D87A0300FBA0EB /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		E4F8CDAD29D87AFA00FBA0EB /* iOSViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewControllerFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,19 +68,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E403C82A27E8B8CB00FE8195 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		E498E5D927CE8E6C000E980B = {
 			isa = PBXGroup;
 			children = (
 				E4F8CD8C29D2072100FBA0EB /* QuizApp */,
 				E4F8CD8929D1DBE400FBA0EB /* QuizEngine */,
-				E498E5E427CE8E6C000E980B /* QuizGame */,
 				E498E5E327CE8E6C000E980B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,35 +83,6 @@
 				E498E5E227CE8E6C000E980B /* QuizGame.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		E498E5E427CE8E6C000E980B /* QuizGame */ = {
-			isa = PBXGroup;
-			children = (
-				E4F8CD8629D055CB00FBA0EB /* BasicQuizDomain */,
-				E4EE189A296C79BF004DB289 /* Manager */,
-				E403C82A27E8B8CB00FE8195 /* View */,
-				E498E5EE27CE8E6D000E980B /* Assets.xcassets */,
-				E498E5F327CE8E6D000E980B /* Info.plist */,
-			);
-			path = QuizGame;
-			sourceTree = "<group>";
-		};
-		E4EE189A296C79BF004DB289 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				E4D6F56628184C91002CEAEF /* QuestionManager.swift */,
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
-		E4F8CD8629D055CB00FBA0EB /* BasicQuizDomain */ = {
-			isa = PBXGroup;
-			children = (
-				E403C82527E89F8400FE8195 /* Question.swift */,
-				E4F8CD8729D055FE00FBA0EB /* BasicScore.swift */,
-			);
-			path = BasicQuizDomain;
 			sourceTree = "<group>";
 		};
 		E4F8CD8929D1DBE400FBA0EB /* QuizEngine */ = {
@@ -154,6 +114,9 @@
 				E4F8CD9329D394BD00FBA0EB /* ResultsViewController.xib */,
 				E4F8CDA729D64B2100FBA0EB /* NavigationControllerRouter.swift */,
 				E4F8CDA929D7222300FBA0EB /* Question.swift */,
+				E4F8CDAB29D87A0300FBA0EB /* ViewControllerFactory.swift */,
+				E4F8CDAD29D87AFA00FBA0EB /* iOSViewControllerFactory.swift */,
+				E48E7D2329D96E4200B02B31 /* ResultsPresenter.swift */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";
@@ -218,7 +181,6 @@
 			files = (
 				E498E5F227CE8E6D000E980B /* LaunchScreen.storyboard in Resources */,
 				E4F8CD9829D44AD500FBA0EB /* WrongAnswerCell.xib in Resources */,
-				E498E5EF27CE8E6D000E980B /* Assets.xcassets in Resources */,
 				E4F8CD9029D2092C00FBA0EB /* QuestionViewController.xib in Resources */,
 				E4F8CD9629D4418900FBA0EB /* CorrectAnswerCell.xib in Resources */,
 				E4F8CD9429D394BD00FBA0EB /* ResultsViewController.xib in Resources */,
@@ -233,15 +195,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4F8CDA829D64B2100FBA0EB /* NavigationControllerRouter.swift in Sources */,
-				E4F8CD8829D055FE00FBA0EB /* BasicScore.swift in Sources */,
 				E4F8CDA629D5FE5A00FBA0EB /* Game.swift in Sources */,
+				E4F8CDAC29D87A0300FBA0EB /* ViewControllerFactory.swift in Sources */,
+				E4F8CDAE29D87AFA00FBA0EB /* iOSViewControllerFactory.swift in Sources */,
 				E4F8CDAA29D7222300FBA0EB /* Question.swift in Sources */,
+				E48E7D2429D96E4200B02B31 /* ResultsPresenter.swift in Sources */,
 				E4F8CDA229D5FCA700FBA0EB /* Result.swift in Sources */,
-				E403C82627E89F8400FE8195 /* Question.swift in Sources */,
 				E4F8CD8E29D2073F00FBA0EB /* QuestionViewController.swift in Sources */,
 				E4F8CD9C29D4DAC800FBA0EB /* PresentableAnswer.swift in Sources */,
 				E4F8CD9A29D476D400FBA0EB /* UITableViewExtensions.swift in Sources */,
-				E4D6F56728184C91002CEAEF /* QuestionManager.swift in Sources */,
 				E4F8CD9E29D4DB2700FBA0EB /* CorrectAnswerCell.swift in Sources */,
 				E4F8CD8B29D1DBFC00FBA0EB /* Flow.swift in Sources */,
 				E498E5E627CE8E6C000E980B /* AppDelegate.swift in Sources */,
@@ -392,6 +354,7 @@
 				DEVELOPMENT_TEAM = TYBU95U99R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuizGame/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -419,6 +382,7 @@
 				DEVELOPMENT_TEAM = TYBU95U99R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuizGame/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

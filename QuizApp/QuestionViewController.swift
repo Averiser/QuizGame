@@ -1,19 +1,15 @@
 //
-//  QuestionViewController.swift
-//  QuizGame
-//
 //  Created by MyMacBook on 27.03.2023.
 //
 
-import Foundation
 import UIKit
 
 class QuestionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   @IBOutlet weak var headerLabel: UILabel!
   @IBOutlet weak var tableView: UITableView!
 
-  private var question = ""
-  private var options = [String]()
+  private (set) var question = ""
+  private (set) var options = [String]( )
   private var selection: (([String]) -> Void)? = nil
   private let reuseIdentifier = "Cell"
   
