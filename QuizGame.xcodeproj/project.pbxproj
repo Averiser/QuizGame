@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E48E7D2429D96E4200B02B31 /* ResultsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E7D2329D96E4200B02B31 /* ResultsPresenter.swift */; };
+		E48E7D2629DA163800B02B31 /* QuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E7D2529DA163800B02B31 /* QuestionPresenter.swift */; };
 		E498E5E627CE8E6C000E980B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498E5E527CE8E6C000E980B /* AppDelegate.swift */; };
 		E498E5E827CE8E6C000E980B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E498E5E727CE8E6C000E980B /* SceneDelegate.swift */; };
 		E498E5F227CE8E6D000E980B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E498E5F027CE8E6D000E980B /* LaunchScreen.storyboard */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		E48E7D2329D96E4200B02B31 /* ResultsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPresenter.swift; sourceTree = "<group>"; };
+		E48E7D2529DA163800B02B31 /* QuestionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresenter.swift; sourceTree = "<group>"; };
 		E498E5E227CE8E6C000E980B /* QuizGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E498E5E527CE8E6C000E980B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E498E5E727CE8E6C000E980B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				E4F8CDAB29D87A0300FBA0EB /* ViewControllerFactory.swift */,
 				E4F8CDAD29D87AFA00FBA0EB /* iOSViewControllerFactory.swift */,
 				E48E7D2329D96E4200B02B31 /* ResultsPresenter.swift */,
+				E48E7D2529DA163800B02B31 /* QuestionPresenter.swift */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				E4F8CDA629D5FE5A00FBA0EB /* Game.swift in Sources */,
 				E4F8CDAC29D87A0300FBA0EB /* ViewControllerFactory.swift in Sources */,
 				E4F8CDAE29D87AFA00FBA0EB /* iOSViewControllerFactory.swift in Sources */,
+				E48E7D2629DA163800B02B31 /* QuestionPresenter.swift in Sources */,
 				E4F8CDAA29D7222300FBA0EB /* Question.swift in Sources */,
 				E48E7D2429D96E4200B02B31 /* ResultsPresenter.swift in Sources */,
 				E4F8CDA229D5FCA700FBA0EB /* Result.swift in Sources */,
