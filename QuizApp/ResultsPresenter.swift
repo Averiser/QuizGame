@@ -10,8 +10,12 @@ struct ResultsPresenter {
 //  let options: Dictionary<Question<String>, [String]>
   let correctAnswers: Dictionary<Question<String>, [String]>
   
+  var title: String {
+    return "Result"
+  }
+  
   var summary: String {
-    return "You got\(result.score)/\(result.answers.count) correct."
+    return "You got \(result.score)/\(result.answers.count) correct."
   }
   
   var presentableAnswers: [PresentableAnswer] {
