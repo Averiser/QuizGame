@@ -9,30 +9,46 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
-  var window: UIWindow?
+//  var window: UIWindow?
+//    var game: Game<Question<String>, [String], NavigationControllerRouter>?
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-    window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-            window?.windowScene = windowScene
+//
+//        guard let windowScene = (scene as? UIWindowScene) else { return }
+//    window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+//            window?.windowScene = windowScene
+    
 //    let viewController = QuestionViewController(question: "A question?", options: ["Option 1", "Option 2"]) { print($0) }
     
-    let viewController = ResultsViewController(summary: "You got 1/2 correct", answers: [
-      PresentableAnswer(question: "Question? QuestionQuestionQuestionQuestionQuestionQuestionQuestionQuestionQuestionQuestion", answer: "Yeah!", wrongAnswer: nil),
-      PresentableAnswer(question: "Another question?", answer: "Hell yeah!", wrongAnswer: "Hell no!")
-    ])
-      
-    _ = viewController.view
-    viewController.tableView.allowsMultipleSelection = true
-    window?.rootViewController = viewController
-    window?.makeKeyAndVisible()
+//    let viewController = ResultsViewController(summary: "You got 1/2 correct", answers: [
+//      PresentableAnswer(question: "Question? QuestionQuestionQuestionQuestionQuestionQuestionQuestionQuestionQuestionQuestion", answer: "Yeah!", wrongAnswer: nil),
+//      PresentableAnswer(question: "Another question?", answer: "Hell yeah!", wrongAnswer: "Hell no!")
+//    ])
+//      
+//        let question = Question.singleAnswer("What's Mike's nationality?")
+//        let questions = [question]
+//    
+//        let option1 = "Canadian"
+//        let option2 = "American"
+//        let option3 = "Greek"
+//        let options = [option1, option2, option3]
+//    
+//        let correctAnswers = [question: [option3]]
+//    
+//        let navigationController = UINavigationController()
+//        let factory = iOSViewControllerFactory(questions: questions, options: [question: options], correctAnswers: correctAnswers)
+//    
+//        let router = NavigationControllerRouter(navigationController, factory: factory)
+//    
+//    
+//        game = startGame(questions: questions, router: router, correctAnswers: correctAnswers)
     
-//        window?.windowScene = windowScene
-//        window?.makeKeyAndVisible()
-//        let controller = ViewController()
-//        let navController = UINavigationController(rootViewController: controller)
-//        window?.rootViewController = navController
+    
+    
+//    _ = viewController.view
+//    viewController.tableView.allowsMultipleSelection = true
+//    window?.rootViewController = navigationController
+//    window?.makeKeyAndVisible()
     
     
       }

@@ -7,6 +7,7 @@ import Foundation
 struct ResultsPresenter {
   let result: Result<Question<String>, [String]>
   let questions: [Question<String>]
+//  let options: Dictionary<Question<String>, [String]>
   let correctAnswers: Dictionary<Question<String>, [String]>
   
   var summary: String {
@@ -32,6 +33,11 @@ struct ResultsPresenter {
                                wrongAnswer: formattedWrongAnswer(userAnswer, correctAnswer))
     }
   }
+  
+//  private func ordered(_ answers: Set<String>) -> [String] {
+//    return options.filter { answers.contains($0) }
+//  }
+  
   private func formattedAnswer(_ answer: [String]) -> String   {
     return answer.joined(separator: ", ")
   }
