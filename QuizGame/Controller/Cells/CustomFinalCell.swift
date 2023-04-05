@@ -13,20 +13,15 @@ class CustomFinalCell: UITableViewCell {
 //  @IBOutlet weak var questionLabel: UILabel!
   
   @IBOutlet weak var questionLabel: UILabel!
+  @IBOutlet weak var option1: UILabel!
+  @IBOutlet weak var option2: UILabel!
+  @IBOutlet weak var option3: UILabel!
+  @IBOutlet weak var option4: UILabel!
   
-    override func awakeFromNib() {
+  override func awakeFromNib() {
         super.awakeFromNib()
     }
-  
-//  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-//    super.init(style: style, reuseIdentifier: reuseIdentifier)
-//  }
-//
-//  required init?(coder: NSCoder) {
-//    fatalError("init(coder:) has not been implemented")
-//  }
-//
-//
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -35,7 +30,13 @@ class CustomFinalCell: UITableViewCell {
   
   public func configure(with question: Question) {
     questionLabel.text = question.text
-
+  }
+  
+  public func configureAnswers(with answers: Answer) {
+//    option1.text = answers.text
+//    option2.text = answers.text
+//    option3.text = answers.text
+//    option4.text = answers.text
   }
     
 }

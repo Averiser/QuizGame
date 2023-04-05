@@ -50,8 +50,9 @@ class GameViewController: UIViewController {
 //      view.backgroundColor = .purple
       questionManager.shuffleQuestions()
       configureTableView()
-      configureQuestionView()
+//      configureQuestionView()
     }
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     showQuestion()
@@ -59,12 +60,12 @@ class GameViewController: UIViewController {
   
   // MARK: - Private methods
   
-  private func configureQuestionView() {
-    for question in questionManager.questions {
-      let questionView = QuestionView(question: question)
-      view.addSubview(questionView)
-    }
-  }
+//  private func configureQuestionView() {
+//    for question in questionManager.questions {
+//      let questionView = QuestionView(question: question)
+//      view.addSubview(questionView)
+//    }
+//  }
   
   private func answersList() {
 //    UserDefaults.standard.string(forKey: "key")

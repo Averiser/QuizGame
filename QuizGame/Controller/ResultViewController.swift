@@ -39,11 +39,11 @@ class ResultViewController: UIViewController {
     print("Hello, world!")
   }
   
-  private func configureQuestionsArrayView() {
-      let questionsArrayView = QuestionsArrayView(questions: questions)
-//          view.addSubview(questionsArrayView)
-    tableView.addSubview(questionsArrayView)
-  }
+//  private func configureQuestionsArrayView() {
+//      let questionsArrayView = QuestionsArrayView(questions: questions)
+////          view.addSubview(questionsArrayView)
+//    tableView.addSubview(questionsArrayView)
+//  }
   
   private func configureQuestionView() {
     for question in questions {
@@ -59,7 +59,7 @@ class ResultViewController: UIViewController {
       view.backgroundColor = .cyan
         navigationItem.setHidesBackButton(true, animated: true)
       configureTableView()
-      configureQuestionsArrayView()  // doesn't work, nothing shows up on the screen 2023-03-17
+//      configureQuestionsArrayView()  // doesn't work, nothing shows up on the screen 2023-03-17
       configureQuestionView()
 
 //      }
@@ -78,8 +78,7 @@ class ResultViewController: UIViewController {
 extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return questions.count
-//    return 10
+    return questionManager.questions.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -93,6 +92,9 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
     
     let question = questionManager.questions[indexPath.row]
     cell.configure(with: question)
+    
+    guard let answer = questionManager.currentQuestion?.answers[indexPath.row] else { fatalError("Smth is going on.") }
+    cell.configureAnswers(with: answer)
     
 //    cell.questionLabel?.text = questions[indexPath.row].text
     
