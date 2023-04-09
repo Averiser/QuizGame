@@ -32,10 +32,8 @@ class GameViewController: UIViewController {
   
 //  var questions: [Question] = []
 //  private var shuffledQuestions: [Question] = []
-//  private var currentQuestion: Question?
 //  private var questionNumber: Int = 0
   private var questionManager: QuestionManager!
-  
   private var score: Int = 0
   
   let userDefaults = UserDefaults()
@@ -48,9 +46,10 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
       super.viewDidLoad()
 //      view.backgroundColor = .purple
-      questionManager.shuffleQuestions()
       configureTableView()
 //      configureQuestionView()
+//      showQuestion()
+      questionManager.shuffleQuestions()
     }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -60,12 +59,12 @@ class GameViewController: UIViewController {
   
   // MARK: - Private methods
   
-//  private func configureQuestionView() {
-//    for question in questionManager.questions {
-//      let questionView = QuestionView(question: question)
-//      view.addSubview(questionView)
-//    }
-//  }
+  private func configureQuestionView() {
+    for question in questionManager.questions {
+      let questionView = QuestionView(question: question)
+      view.addSubview(questionView)
+    }
+  }
   
   private func answersList() {
 //    UserDefaults.standard.string(forKey: "key")
@@ -82,39 +81,25 @@ class GameViewController: UIViewController {
   
   // MARK: - QuizGame
   
-//  private func shuffleQuestions() {
-//    shuffledQuestions = questions.shuffled()
-//    questionNumber = 1
-//    score = 0
-//    showQuestion()
-//  }
-  
   private func showQuestion() {
-//    let randomQuestion = questions.randomElement()
-//    currentQuestion = randomQuestion
     
     questionManager.upQuestionNumber()
-//    let stepProgress = Float(questionNumber - 1) / Float(questions.count)
     let stepProgress = Float(questionManager.questionNumber - 1) / Float(questionManager.questions.count)
     progressView.progress = stepProgress
     
-    questionCounterLabel.text = "\(questionManager.questionNumber)/\(questionManager.questions.count)"
+    questionCounterLabel.text = "\(questionManager.questionNumber - 1)/\(questionManager.questions.count)"
     scoreLabel.text = "Score: \(score)"
-    
-//    currentQuestion = shuffledQuestions[questionNumber - 1]
     questionNameLabel.text = questionManager.currentQuestion?.text ?? ""
     
-    questionNumberLabel.text = "Question \(questionManager.questionNumber)"
+//    questionNameLabel.text = questions.text ?? ""
+    
+    questionNumberLabel.text = "Question \(questionManager.questionNumber - 1)"
 //    questionNumber += 1
-
+    
     tableView.reloadData()
   }
   
   func popToLevelsViewController() {
-//      if let firstViewController = self.navigationController?.viewControllers[1] {
-//          self.navigationController?.popToViewController(firstViewController, animated: true)
-//      }
-  
   guard let viewControllers = self.navigationController?.viewControllers else { return }
 
   for firstViewController in viewControllers {
@@ -125,17 +110,10 @@ class GameViewController: UIViewController {
     }
   }
   
-//  in this below mentioned method works something strangely....
   func pushToResultViewController() {
-//    guard let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "result") as? ResultViewController
-//    else {
-//      return
-//    }
-    
     let vc = ResultViewController.create(with: questionManager)
     self.navigationController?.pushViewController(vc, animated: true)
   }
-  
   
   private func updateUI() {
     progressView.progress = Float((questionManager.questionNumber - 1)/questionManager.questions.count)
@@ -151,7 +129,7 @@ class GameViewController: UIViewController {
         self.score = 0
         self.questionManager.shuffleQuestions()
         self.showQuestion()
-      } )
+      })
       let mainPageAction = UIAlertAction(title: "Return to main menu",
                                          style: .default,
                                          handler: { action in self.popToLevelsViewController() } )
@@ -175,7 +153,6 @@ class GameViewController: UIViewController {
   extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//      currentQuestion?.answers.shuffle()
       return questionManager.currentQuestion?.answers.count ?? 0
     }
     

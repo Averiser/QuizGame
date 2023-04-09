@@ -7,32 +7,16 @@
 
 import Foundation
 
-struct Question {
-//: Encodable {
-//  // This is the key to the solution: bury the type of value inside a closure
-//  let valueEncoder: (Encoder) throws -> Void
-//
-//  init<T: Encodable>(id: String, value: T) {
-//    self.valueEncoder = {
-//      var container = $0.container(keyedBy: CodingKeys.self)
-//      try container.encode(id, forKey: .id)
-//      try container.encode(value, forKey: .value)
-//    }
+struct Question  /* <T: Hashable>: Hashable */ {
+//  static func == (lhs: Question<T>, rhs: Question<T>) -> Bool {
+//    let areEqual = lhs.text == rhs.text && lhs.answers == rhs.answers
+//    return areEqual
 //  }
   
-//  init(text: String, answers: [Answer], explanation: String) {
-//    self.text = text
-//    self.answers = answers
-//    self.explanation = explanation
+//  public func hash(into hasher: inout Hasher) {
+//    hasher.combine(0)
 //  }
   
-//  enum CodingKeys: String, CodingKey {
-//    case id, value
-//  }
-//
-//  func encode(to encoder: Encoder) throws {
-//    try valueEncoder(encoder)
-//  }
         
   let text: String
   var answers: [Answer]

@@ -32,11 +32,11 @@ class CustomFinalCell: UITableViewCell {
     questionLabel.text = question.text
   }
   
-  public func configureAnswers(with answers: Answer) {
-//    option1.text = answers.text
-//    option2.text = answers.text
-//    option3.text = answers.text
-//    option4.text = answers.text
+  public func configureAnswers(with answer: Answer) {
+    option1.text = answer.text
+    option2.text = answer.text
+    option3.text = answer.text
+    option4.text = answer.text
   }
     
 }

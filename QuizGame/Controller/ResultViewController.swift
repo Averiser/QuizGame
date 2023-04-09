@@ -13,6 +13,7 @@ class ResultViewController: UIViewController {
     
     private var questionManager: QuestionManager!
     private var questions: [Question] = []
+//  private var answers: Dictionary<Question<String>, [String]> = [:]
   
   // MARK: - Create
   
@@ -59,6 +60,7 @@ class ResultViewController: UIViewController {
       view.backgroundColor = .cyan
         navigationItem.setHidesBackButton(true, animated: true)
       configureTableView()
+      questionManager.shuffleQuestions()
 //      configureQuestionsArrayView()  // doesn't work, nothing shows up on the screen 2023-03-17
       configureQuestionView()
 
@@ -77,8 +79,13 @@ class ResultViewController: UIViewController {
 
 extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
   
+//  func numberOfSections(in tableView: UITableView) -> Int {
+//    return questionManager.questions.count
+//  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return questionManager.questions.count
+//    return questionManager.questions.count
+    return questionManager.currentQuestion?.answers.count ?? 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
