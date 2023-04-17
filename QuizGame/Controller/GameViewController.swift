@@ -48,7 +48,6 @@ class GameViewController: UIViewController {
 //      view.backgroundColor = .purple
       configureTableView()
 //      configureQuestionView()
-//      showQuestion()
       questionManager.shuffleQuestions()
     }
   

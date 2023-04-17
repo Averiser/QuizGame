@@ -15,7 +15,7 @@ class LevelsViewController: UIViewController {
   
   // MARK: - Dependency
   
-  private let questionManager = QuestionManager()
+  private var questionManager = QuestionManager()
   
   // MARK: - Lifecycle
   
