@@ -101,6 +101,7 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
     }
         
     let question = questionManager.questions[indexPath.row]
+//    let answer = question.answers[indexPath]
     cell.configure(with: question)
     
 //    if let answer = questionManager.currentQuestion?.answers[indexPath.row] { cell.configure(with: question, with: answer)

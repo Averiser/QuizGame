@@ -44,24 +44,9 @@ class CustomTableViewCell: UITableViewCell {
       contentView.layer.add(go_red, forKey: "backgroundColor")
     }
   
-  
+  public func configure(with question: Question) {
+//    questionLabel.text = question.text
+  }
 
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
-//  
-//  private func registerTableViewCells() {
-//    let textFieldCell = UINib(nibName: "CustomTableViewCell",
-//                              bundle: nil)
-//    self.tableview.register(textFieldCell,
-//                            forCellReuseIdentifier: "CustomTableViewCell")
-//}
     
 }
