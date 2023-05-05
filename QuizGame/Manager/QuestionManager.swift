@@ -17,21 +17,21 @@ class QuestionManager {
   // MARK: - Properties
   
   private (set) var questions: [Question] = []
+  private (set) var answers: [Answer] = []
   private (set) var currentQuestion: Question?
-  private (set)var questionNumber: Int = 0
+  private (set) var questionNumber: Int = 0
   public var levelType: LevelType = .beginners
   
   // MARK: - Constants
   
-  private let defaultQuestions: [LevelType: [Question]] = [
+  public let defaultQuestions: [LevelType: [Question]] = [
     .beginners: [
       Question(text: "What is 2 + 2?", answers: [
         Answer(text: "1", correct: false),
         Answer(text: "2", correct: false),
         Answer(text: "4", correct: true),
         Answer(text: "7", correct: false)
-      ],
-               explanation: "The correct answer will be ___ as it is a Singular form."),
+      ], explanation: "The correct answer will be ___ as it is a Singular form."),
       Question(text: "What is 2 + 10?", answers: [
         Answer(text: "1", correct: false),
         Answer(text: "12", correct: true),

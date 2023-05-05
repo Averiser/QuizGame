@@ -13,6 +13,8 @@ class ResultViewController: UIViewController {
   
   private var questionManager: QuestionManager!
   private var questions: [Question] = []
+  private var answers: [Answer] = []
+//  private (set) var currentQuestion: Question?
   //  private var answers: Dictionary<Question<String>, [String]> = [:]
   
   // MARK: - Create
@@ -101,23 +103,66 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
     }
         
     let question = questionManager.questions[indexPath.row]
-//    let answer = question.answers[indexPath]
-    cell.configure(with: question)
+    answers = question.answers
     
-//    if let answer = questionManager.currentQuestion?.answers[indexPath.row] { cell.configure(with: question, with: answer)
+//    let answers = question.answers
+    
+//    guard let questionManagerUnwrapped = questionManager else { return UITableViewCell() }
+    
+//    func getFirstElement(arr: [String]) -> String? {
+//      guard (answers.count < 0) else { return nil }
+//      return arr[0]
+//    }
+//
+//    func getFourthElement(arr: [String]) -> String? {
+//      guard (answers.count >= 4) else { return nil }
+//      return arr[3]
+//    }
+  
+//     let answer = question.answers[indexPath.row]
+//    else {return UITableViewCell()}
+//        var sliceOfArray = question.answers[0...3]
+    //
+//        sliceOfArray =
+    
+//    for answer in answers {
+//      answers.getElement(at: indexPath.row)
+//    }
+          
+//    let answer = question.answers[index] where index >=  startIndex, index < endIndex
+//    let index = indexPath.row
+    
+//    guard let answer = question.answers.dropFirst(1).last else { return UITableViewCell() }
+    
+//    guard let answer = question.answers.first else {return UITableViewCell()}
+
+//    for answer in answers {
+//      guard let answer = question.answers.first else { return UITableViewCell()}
+//      
 //    }
     
-//    guard let answer = questionManager.currentQuestion?.answers[indexPath.row] else { fatalError("Smth is going on...") }
-
-    
-//    guard let answer = questionManager.currentQuestion?.answers[indexPath.row] else { return UITableViewCell()}
-    
-//    let answer = questionManager.currentQuestion?.answers[indexPath.row]
-//
-//    cell.configureAnswers(with: answer)
-    
-//    cell.questionLabel?.text = questions[indexPath.row].text
-    
+//    for answer in answers {
+//      if let item = answers[safe: answer[indexPath.row]] {
+//        return item
+//      }
+//    }
+        
+    cell.configure(with: question, with: answers)
+        
     return cell
   }
 }
+
+//extension Array {
+//  func getElement(at index: Int) -> Element? {
+//    let isValidIndex = index >= 0 && index < count
+//    return isValidIndex ? self[index] : nil
+//  }
+//}
+//
+//extension Collection {
+//  subscript(index i: Index) -> Element? {
+//    return indices.contains(i) ? self[i] : nil
+//
+//  }
+//}
