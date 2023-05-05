@@ -29,36 +29,11 @@ import UIKit
     // MARK: - Public methods
     
     public func configure(with question: Question, with answers: [Answer]) {
-        questionLabel.text = question.text
-  //        option1 = viewWithTag(1) as? UILabel
-  //        option2 = viewWithTag(2) as? UILabel
-  //        option3 = viewWithTag(3) as? UILabel
-  //        option4 = viewWithTag(4) as? UILabel
-      
-  //    option2 = viewWithTag(2) as? UILabel
-  //    option3 = viewWithTag(3) as? UILabel
-  //    option4 = viewWithTag(4) as? UILabel
-      
-    
-      
-        
-  //      guard let questionManagerUnwrapped = questionManager else {return}
-        
-  //      option1.text = questionManagerUnwrapped.currentQuestion?.answers[1].text
-  //        option1.text = question.answers[indexPath.row].text
-
-//      for answer in answers {
-//        option1.text = answer.text
-//  //      option2.text = answer.text
-//        option3.text = answer.text
-//        option4.text = answer.text
-//      }
+      questionLabel.text = question.text
       option1.text = question.answers[0].text
       option2.text = question.answers[1].text
       option3.text = question.answers[2].text
       option4.text = question.answers[3].text
-  //    option1.text = "iyx1"
-  //      option4.text = answer.text
       }
   }
 

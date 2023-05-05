@@ -18,7 +18,7 @@ class QuestionManager {
   
   private (set) var questions: [Question] = []
   private (set) var answers: [Answer] = []
-  private (set) var currentQuestion: Question?
+  /*private (set)*/ var currentQuestion: Question?
   private (set) var questionNumber: Int = 0
   public var levelType: LevelType = .beginners
   

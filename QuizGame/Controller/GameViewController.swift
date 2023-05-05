@@ -152,6 +152,7 @@ class GameViewController: UIViewController {
   extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      questionManager.currentQuestion?.answers.shuffle()
       return questionManager.currentQuestion?.answers.count ?? 0
     }
     
