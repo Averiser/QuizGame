@@ -17,7 +17,7 @@ class QuestionManager {
   // MARK: - Properties
   
   private (set) var questions: [Question] = []
-  private (set) var answers: [Answer] = []
+  /*private (set)*/ var answers: [Answer] = []
   /*private (set)*/ var currentQuestion: Question?
   private (set) var questionNumber: Int = 0
   public var levelType: LevelType = .beginners
@@ -104,13 +104,13 @@ class QuestionManager {
       ], explanation: "The correct answer will be is as it is a Singular form."),
       Question(text: "What is 10 / 2?", answers: [
         Answer(text: "1", correct: false),
-        Answer(text: "12", correct: false),
         Answer(text: "4", correct: false),
-        Answer(text: "5", correct: true)
+        Answer(text: "5", correct: true),
+        Answer(text: "12", correct: false)
       ], explanation: "The correct answer will be is as it is a Singular form."),
       Question(text: "What is 27 / 3?", answers: [
-        Answer(text: "10", correct: false),
         Answer(text: "9", correct: true),
+        Answer(text: "10", correct: false),
         Answer(text: "11", correct: false),
         Answer(text: "12", correct: false)
       ], explanation: "The correct answer will be is as it is a Singular form."),
@@ -121,10 +121,10 @@ class QuestionManager {
         Answer(text: "10", correct: false)
       ], explanation: "The correct answer will be is as it is a Singular form."),
       Question(text: "What is 100 / 2?", answers: [
-        Answer(text: "100", correct: false),
         Answer(text: "30", correct: false),
         Answer(text: "40", correct: false),
-        Answer(text: "50", correct: true)
+        Answer(text: "50", correct: true),
+        Answer(text: "100", correct: false)
       ], explanation: "The correct answer will be is as it is a Singular form.")
     ]
   ]
@@ -132,14 +132,18 @@ class QuestionManager {
   // MARK: - Public methods
   
   public func shuffleQuestions() {
-    guard let questions = defaultQuestions[levelType]?.shuffled()
-    else {
+    guard let questions = defaultQuestions[levelType]?.shuffled() else {
       return
     }
     
     questionNumber = 1
     self.questions = questions
+    
+//        for question in questions {
+//          question.answers.shuffle()
+//        }
   }
+  
   
   public func upQuestionNumber() {
     currentQuestion = self.questions[questionNumber - 1]

@@ -21,20 +21,22 @@ import UIKit
       super.awakeFromNib()
     }
     
-  //  override func setSelected(_ selected: Bool, animated: Bool) {
-  //    super.setSelected(selected, animated: animated)
-  //  }
+    override func setSelected(_ selected: Bool, animated: Bool) {
+      super.setSelected(selected, animated: animated)
+    }
     
     
     // MARK: - Public methods
     
     public func configure(with question: Question, with answers: [Answer]) {
       questionLabel.text = question.text
-      option1.text = question.answers[0].text
-      option2.text = question.answers[1].text
-      option3.text = question.answers[2].text
-      option4.text = question.answers[3].text
-      }
+//      option1.text = questionManager.currentQuestion?.answers[0].text
+      // Thread 1: Fatal error: Unexpectedly found nil while implicitly unwrapping an Optional value
+        option1.text = question.answers[0].text
+        option2.text = question.answers[1].text
+        option3.text = question.answers[2].text
+        option4.text = question.answers[3].text
+            }
   }
 
 //extension Collection {

@@ -5,12 +5,17 @@
 //  Created by MyMacBook on 01.03.2022.
 //
 
-
 import UIKit
+import GameplayKit
 
 class GameViewController: UIViewController {
   
   // MARK: - Create
+  
+  
+  public var array: Array<Any> = []
+  
+//  public var g = SystemRandomNumberGenerator()
   
   static func create(with questionManager: QuestionManager) -> GameViewController {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -18,6 +23,16 @@ class GameViewController: UIViewController {
     vc.questionManager = questionManager
     return vc
   }
+//  public func shuffleAnswers() {
+//    questionManager.currentQuestion?.answers.shuffle
+//  }
+//  var myGenerator = SystemRandomNumberGenerator()
+//
+//  @inlinable
+//  public func shuffleAnswers() {
+////   var myGenerator = SystemRandomNumberGenerator()
+//    questionManager.currentQuestion?.answers.shuffle(using: &myGenerator)
+//  }
   
   // MARK: - IBOutlets
   
@@ -36,37 +51,26 @@ class GameViewController: UIViewController {
   private var questionManager: QuestionManager!
   private var score: Int = 0
   
-  let userDefaults = UserDefaults()
+//  let source = GKLinearCongruentialRandomSource()
+  let source = GKMersenneTwisterRandomSource()
+  let defaults = UserDefaults.standard
   
   // MARK: - Lifecycle
-  
-//  var QuestionView = UITableView()
-//  self.view.addSubview(questionView)
 
     override func viewDidLoad() {
       super.viewDidLoad()
-//      view.backgroundColor = .purple
       configureTableView()
-//      configureQuestionView()
       questionManager.shuffleQuestions()
+//      shuffleAnswers()
+      
+      let seed = source.seed
+//      defaults.set(0, forKey: "Seed")
+      defaults.set(seed, forKey: "Seed")
     }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     showQuestion()
-  }
-  
-  // MARK: - Private methods
-  
-  private func configureQuestionView() {
-    for question in questionManager.questions {
-      let questionView = QuestionView(question: question)
-      view.addSubview(questionView)
-    }
-  }
-  
-  private func answersList() {
-//    UserDefaults.standard.string(forKey: "key")
   }
   
   // MARK: - Configure UI
@@ -75,7 +79,6 @@ class GameViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
-    print("Heil, Siegfrid!")
   }
   
   // MARK: - QuizGame
@@ -89,11 +92,7 @@ class GameViewController: UIViewController {
     questionCounterLabel.text = "\(questionManager.questionNumber - 1)/\(questionManager.questions.count)"
     scoreLabel.text = "Score: \(score)"
     questionNameLabel.text = questionManager.currentQuestion?.text ?? ""
-    
-//    questionNameLabel.text = questions.text ?? ""
-    
     questionNumberLabel.text = "Question \(questionManager.questionNumber - 1)"
-//    questionNumber += 1
     
     tableView.reloadData()
   }
@@ -112,6 +111,11 @@ class GameViewController: UIViewController {
   func pushToResultViewController() {
     let vc = ResultViewController.create(with: questionManager)
     self.navigationController?.pushViewController(vc, animated: true)
+    
+//    let seed = source.seed
+//    let source = GKLinearCongruentialRandomSource(seed: seed)
+    
+    questionManager.currentQuestion?.answers.shuffle()
   }
   
   private func updateUI() {
@@ -145,6 +149,28 @@ class GameViewController: UIViewController {
       showQuestion()    
     }
   }
+  
+
+//  1. Create a random source with the plain initializer.
+  //  let lcg = GKLinearCongruentialRandomSource(seed: mySeedValue)
+//  let source = GKLinearCongruentialRandomSource()
+  
+//  2. Save off that source's seed value.
+//  let seed = source.seed
+  
+//  let shuffled = lcg.arrayByShufflingObjects(in: array)
+  
+//  func shuffledN(_ answers: [Answer]) -> [Answer] {
+//    let answers = questionManager.currentQuestion?.answers
+////    return GKRandomSource.sharedRandom().arrayByShufflingObjects(in: answers!) as! [Answer]
+//    return source.arrayByShufflingObjects(in: answers!) as! [Answer]
+//  }
+
+//  public func shuffledN() {
+//     var answers = questionManager.currentQuestion?.answers
+//     GKRandomSource.sharedRandom().arrayByShufflingObjects(in: answers!)
+//   }
+
 }
   
   // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -152,7 +178,18 @@ class GameViewController: UIViewController {
   extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      questionManager.currentQuestion?.answers.shuffle()
+        questionManager.currentQuestion?.answers.shuffle()
+      
+//      questionManager.currentQuestion?.answers.shuffledN()
+//      shuffleAnswers()
+//      guard let newAnswers = questionManager.currentQuestion?.answers else {return 4}
+//      source.arrayByShufflingObjects(in: newAnswers)
+  
+//      shuffledN(questionManager.currentQuestion!.answers.shuffled())
+//      shuffledN(questionManager.currentQuestion!.answers)
+      
+//      questionManager.currentQuestion?.answers.shuffleM(using: &g)
+      
       return questionManager.currentQuestion?.answers.count ?? 0
     }
     
@@ -161,6 +198,7 @@ class GameViewController: UIViewController {
         return UITableViewCell()
       }
       cell.textLabel?.text = questionManager.currentQuestion?.answers[indexPath.row].text
+
       return cell
     }
     
@@ -184,7 +222,34 @@ class GameViewController: UIViewController {
       }
     }
   }
-  
+
+//extension MutableCollection where Self: RandomAccessCollection {
+//
+////  @inlinable
+////    public mutating func shuffleM() {
+////      var g = SystemRandomNumberGenerator()
+////      shuffle(using: &g)
+////    }
+//
+//  @inlinable
+//  public mutating func shuffleM<T>(using generator: inout T) where T: RandomNumberGenerator {
+//    var g = SystemRandomNumberGenerator()
+//    shuffle(using: &g)
+//  }
+//}
+
+
+
+//extension Array {
+//
+//  let shuffledReplicate = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: )
+//
+//    func shuffled(using source: GKRandomSource) -> [Element] {
+//        return (self as NSArray).shuffled(using: source) as! [Element]
+//    }
+//
+//}
+//let shuffled3 = array.shuffled(using: &g)
   
 
   

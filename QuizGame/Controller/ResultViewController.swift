@@ -6,17 +6,20 @@
 //
 
 import UIKit
+import GameplayKit
 
 class ResultViewController: UIViewController {
   
   //   MARK: - Properties
   
   private var questionManager: QuestionManager!
+  private var gameVC: GameViewController!
   private var questions: [Question] = []
   private var answers: [Answer] = []
 //  private (set) var currentQuestion: Question?
   //  private var answers: Dictionary<Question<String>, [String]> = [:]
-  
+  public var g = SystemRandomNumberGenerator()
+    
   // MARK: - Create
   
   static func create(with questionManager: QuestionManager) -> ResultViewController {
@@ -39,21 +42,30 @@ class ResultViewController: UIViewController {
     tableView.register(UINib(nibName: "CustomFinalCell", bundle: nil), forCellReuseIdentifier: "customFinalCell")
     //    tableView.backgroundColor = .gray
     //    self.tableView.reloadData()
-    print("Hello, world!")
+//    tableView.register(CustomFinalCell.self, forCellReuseIdentifier: "customFinalCell")
   }
   
   //  private func configureQuestionsArrayView() {
   //      let questionsArrayView = QuestionsArrayView(questions: questions)
-  ////          view.addSubview(questionsArrayView)
+  //          view.addSubview(questionsArrayView)
   //    tableView.addSubview(questionsArrayView)
   //  }
   
-  private func configureQuestionView() {
-    for question in questions {
-      let questionView = QuestionView(question: question)
-      tableView.addSubview(questionView)
-    }
-  }
+//  private func configureQuestionView() {
+//    for question in questions {
+//      let questionView = QuestionView(question: question)
+//      tableView.addSubview(questionView)
+//    }
+//  }
+  
+//  private func configureQuestionView() {
+//    let resulVC = ResultViewController()
+//    for answer in answers {
+//      let questionView = QuestionView(answer: answer)
+//      tableView.addSubview(questionView)
+//      present(resulVC, animated: false)
+//    }
+//  }
   
   // MARK: - Lifecycle
   
@@ -62,24 +74,15 @@ class ResultViewController: UIViewController {
     view.backgroundColor = .cyan
     navigationItem.setHidesBackButton(true, animated: true)
     configureTableView()
+    
+//    let seed = gameVC?.source.seed
+    
     //      configureQuestionsArrayView()  // doesn't work, nothing shows up on the screen 2023-03-17
 //    configureQuestionView()
     
     //      }
   }
-  //  override func viewWillAppear(_ animated: Bool) {
-  //    super.viewWillAppear(animated)
-  //    tableView.backgroundColor = .purple
-  //    configureTableView()
-  //    configureQuestionsArrayView()
-  //  }
-//  private func numberItems(_ qu: Int, _ anws: Int) -> Int {
-//
-//    guard let a = questionManager.currentQuestion?.answers.count else {return 1}
-//    let b = questionManager.questions.count
-//    return a + b
-//  }
-  
+
 }
 
 // MARK: UITableViewDelegate, UITableViewDataSource
@@ -88,12 +91,15 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
   
 //  func numberOfSections(in tableView: UITableView) -> Int {
 //    return questionManager.questions.count
-//  } when this is active, 20 qu-anws blocks pop up (instead of 4)...
+//  }
+//  when this is active, 20 qu-anws blocks pop up (instead of 4)...
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    questionManager.questions.count
-//    5
-//    questionManager.currentQuestion?.answers.count ?? 0
+//    gameVC.shuffleAnswers()
+    
+//    let seed =
+//    let source = GKLinearCongruentialRandomSource(seed: seed)
+        return questionManager.questions.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,51 +108,21 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
       return UITableViewCell()
     }
         
-    let question = questionManager.questions[indexPath.row]
-    answers = question.answers
+    var question = questionManager.questions[indexPath.row]
     
-//    let answers = question.answers
+//    question.answers.shuffle(using: &myGenerator)
     
-//    guard let questionManagerUnwrapped = questionManager else { return UITableViewCell() }
-    
-//    func getFirstElement(arr: [String]) -> String? {
-//      guard (answers.count < 0) else { return nil }
-//      return arr[0]
-//    }
-//
-//    func getFourthElement(arr: [String]) -> String? {
-//      guard (answers.count >= 4) else { return nil }
-//      return arr[3]
-//    }
-  
-//     let answer = question.answers[indexPath.row]
-//    else {return UITableViewCell()}
-//        var sliceOfArray = question.answers[0...3]
-    //
-//        sliceOfArray =
-    
-//    for answer in answers {
-//      answers.getElement(at: indexPath.row)
-//    }
-          
-//    let answer = question.answers[index] where index >=  startIndex, index < endIndex
-//    let index = indexPath.row
-    
-//    guard let answer = question.answers.dropFirst(1).last else { return UITableViewCell() }
-    
-//    guard let answer = question.answers.first else {return UITableViewCell()}
+//    shuffleAnswers()
 
-//    for answer in answers {
-//      guard let answer = question.answers.first else { return UITableViewCell()}
-//      
-//    }
+//    question.answers.shuffleM(using: &g)
+//    question.answers.shuffleN
     
-//    for answer in answers {
-//      if let item = answers[safe: answer[indexPath.row]] {
-//        return item
-//      }
-//    }
-        
+    let answers = question.answers
+    
+//    questionManager.currentQuestion?.answers.shuffle()
+    
+    question.answers.shuffle()
+    
     cell.configure(with: question, with: answers)
         
     return cell
